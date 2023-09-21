@@ -285,6 +285,8 @@
 
 #front .container {
     padding-top: 72px;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 
 #front .organization h1 {
@@ -437,7 +439,7 @@
 #team {
     padding: 30px;
     font-size: 16px;
-    background: #9BABB8;
+    background: #f8f7f7;
 }
 
 #team .section-title {
@@ -448,8 +450,8 @@
 #team .section-title h2 {
     font-size: 32px;
     font-weight: 600;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
     position: relative;
     color: #2D4356;
 }
@@ -469,8 +471,62 @@
 
 #team p {
     text-align: center;
-    margin-bottom: 0;
-    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+#team .member {
+    text-align: center;
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    overflow: hidden;
+    box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
+}
+
+#team .member img {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#team .member .member-content {
+    padding: 0 20px 30px 20px;
+}
+
+#team .member h4 {
+    font-weight: 700;
+    margin-top: 16px;
+    margin-bottom: 2px;
+    font-size: 20px;
+    color: #2D4356;
+}
+
+#team .member span {
+    font-style: italic;
+    display: block;
+    font-size: 20px;
+    color: #6c757d;
+}
+
+#team .member p {
+    font-size: 16px;
+    color: #6c757d;
+}
+
+#team .advisor {
+    text-align: center;
+    background: rgba(215, 215, 215, 0.53);
+    border-radius: 10px;
+    border: 2px solid rgba(108, 117, 125, 0.51);
+    padding: 15px;
+    overflow: hidden;
+    box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
+}
+
+#team .advisor p {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 0px;
 }
 
 /*--------------------------------------------------------------
@@ -483,7 +539,7 @@
 
 #footer .footer-joinus {
     padding: 50px 0;
-    background: #e5ebf5;
+    background: #dbe0e8;
     text-align: center;
     font-size: 15px;
     color: #444444;
@@ -495,7 +551,7 @@
     padding: 0;
     line-height: 1;
     font-weight: 600;
-    color: #5A6E8C;
+    color: #3F7F93;
 }
 
 #footer .footer-sns {
