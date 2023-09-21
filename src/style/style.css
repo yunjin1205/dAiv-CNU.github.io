@@ -383,6 +383,97 @@
 }
 
 /*--------------------------------------------------------------
+# About US
+--------------------------------------------------------------*/
+#about {
+    font-size: 20px;
+    background: #fff;
+}
+
+#about .section-title {
+    text-align: start;
+    padding-bottom: 0px;
+}
+
+#about .section-title h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    color: #EF6262;
+}
+
+#about .section-title h2:after {
+    content: "";
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #EF6262;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+}
+
+#about p {
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 26px;
+    color: #fff;
+    background: #EF6262;
+}
+
+#about li {
+    margin-bottom: 0;
+    font-size: 18px;
+    color: #6f6f6f;
+}
+
+/*--------------------------------------------------------------
+# Members
+--------------------------------------------------------------*/
+#team {
+    padding: 30px;
+    font-size: 16px;
+    background: #9BABB8;
+}
+
+#team .section-title {
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+#team .section-title h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    position: relative;
+    color: #2D4356;
+}
+
+#team .section-title h2:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #2D4356;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+#team p {
+    text-align: center;
+    margin-bottom: 0;
+    color: #fff;
+}
+
+/*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 #footer {
@@ -409,6 +500,10 @@
 
 #footer .footer-sns {
     padding: 0px 16px 0px 0px;
+}
+
+#footer .footer-sns-last {
+    padding: 0px 0px 0px 0px;
 }
 
 /*--------------------------------------------------------------
