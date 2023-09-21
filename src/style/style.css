@@ -335,8 +335,12 @@
         animation: none;
     }
 
-    #front .hero-img {
+    #front .logo-img {
         text-align: center;
+    }
+
+    #front .logo-img img {
+        width: 50%;
     }
 }
 
@@ -351,14 +355,18 @@
         line-height: 24px;
         margin-bottom: 30px;
     }
+
+    #front .logo-img img {
+        width: 70%;
+    }
 }
 
 @media (max-width: 575px) {
-    #front .hero-img img {
+    #front .logo-img img {
         width: 80%;
     }
 
-    #front .btn-get-started {
+    #front .joinus {
         font-size: 16px;
         padding: 10px 24px 11px 24px;
     }
