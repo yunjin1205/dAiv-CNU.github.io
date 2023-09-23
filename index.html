@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>CNU dAiv Blog</title>
+    <title>dAiv - 다이브 소개 페이지</title>
     <link rel="shortcut icon" href="res/favicon.ico">
 
     <!-- Bootstrap Assets -->
@@ -13,7 +13,7 @@
 
     <!-- AOS Assets -->
     <link href="cdn/aos/2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="cdn/aos/2.3.1/dist/aos.js"></script>
+    <script src="cdn/aos/2.3.1/dist/aos.js" crossorigin="anonymous"></script>
 
     <!-- Style Setting -->
     <link href="src/style/font.css" rel="stylesheet">
@@ -21,8 +21,8 @@
     <link href="src/style/color.css" rel="stylesheet">
 
     <!-- Page Scripting -->
-    <script type="text/javascript" src="cdn/brython/3.11.3/brython.js"></script>
-    <script type="text/javascript" src="cdn/brython/3.11.3/brython_stdlib.js"></script>
+    <script type="text/javascript" src="cdn/brython/3.11.3/brython.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="cdn/brython/3.11.3/brython_stdlib.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="src/index.js"></script>
     <script type="text/python" src="src/index.py"></script>
 </head>
@@ -36,24 +36,24 @@
                     <li><a class="nav-link scrollto active" href="#front">메인</a></li>
                     <li><a class="nav-link scrollto" href="#about">소개</a></li>
                     <li><a class="nav-link scrollto" href="#team">임원진</a></li>
-                    <li><a class="nav-link scrollto" href="#program">프로그램</a></li>
-                    <li class="contest"><a href="#"><span>경진대회</span> <i class="bi bi-chevron-down"></i></a>
+                    <li><a class="nav-link scrollto" href="#programs">프로그램</a></li>
+                    <li class="contest"><a href="#programs"><span>경진대회</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li class="dropdown"><a href="#"><span>코딩대회</span> <i class="bi bi-chevron-right"></i></a>
+                            <li class="dropdown"><a href="#!"><span>코딩대회</span> <i class="bi bi-chevron-right"></i></a>
                                 <ul>
-                                    <li><a href="#">AI Competition[0]</a></li>
-                                    <li><a href="#">AI Competition[1]</a></li>
-                                    <li><a href="#">AI Competition[2]</a></li>
-                                    <li><a href="#">AI Competition[3]</a></li>
-                                    <li><a href="#">AI Competition[4]</a></li>
+                                    <li><a href="#!">AI Competition[0]</a></li>
+                                    <li><a href="#!">AI Competition[1]</a></li>
+                                    <li><a href="#!">AI Competition[2]</a></li>
+                                    <li><a href="#!">AI Competition[3]</a></li>
+                                    <li><a href="#!">AI Competition[4]</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="#"><span>공모전</span> <i class="bi bi-chevron-right"></i></a>
+                            <li class="dropdown"><a href="#!"><span>공모전</span> <i class="bi bi-chevron-right"></i></a>
                                 <ul>
                                     <li><a href="#">N/A</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="#"><span>학술대회</span> <i class="bi bi-chevron-right"></i></a>
+                            <li class="dropdown"><a href="#!"><span>학술대회</span> <i class="bi bi-chevron-right"></i></a>
                                 <ul>
                                     <li><a href="#">N/A</a></li>
                                 </ul>
@@ -89,15 +89,15 @@
 
     <!-- About Us -->
     <section id="about" class="about">
-        <div class="container my-5" data-aos="fade-up">
+        <div class="container">
             <div class="row content mx-auto">
-                <div class="col-lg-4">
+                <div class="col-lg-4 px-0" data-aos="fade-left" data-aos-delay="300">
                     <div class="section-title">
                         <h2>About Us</h2>
                     </div>
                     <p>AI Learning</p>
                 </div>
-                <div class="col-lg-8 pt-3">
+                <div class="col-lg-8 pt-4 ps-0 pe-0 ps-lg-5" data-aos="fade-up" data-aos-delay="400">
                     <h5>우리는 딥러닝을 기반으로 AI를 공부하는 동아리입니다.</h5>
                     <ul>
                         <li><i class="ri-check-double-line"></i> Tensorflow, Keras, Pytorch를 주로 활용합니다.</li>
@@ -117,7 +117,7 @@
                 <p>dAiv를 운영하는 임원진들에 대해 소개드릴게요.</p>
             </div>
             <div class="row gy-4">
-                <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-xl-3 col-lg-4 col-6 d-flex" data-aos="fade-up" data-aos-delay="100">
                     <a href="https://github.com/hjs3545">
                         <div class="member">
                             <img src="https://avatars.githubusercontent.com/u/76822715?v=4" class="img-fluid shadow-sm" alt="">
@@ -127,7 +127,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-xl-3 col-lg-4 col-6 d-flex" data-aos="fade-up" data-aos-delay="200">
                     <a href="https://github.com/somcandy08">
                         <div class="member">
                             <img src="https://avatars.githubusercontent.com/u/90172441?v=4" class="img-fluid shadow-sm" alt="">
@@ -137,7 +137,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-xl-3 col-lg-4 col-6 d-flex" data-aos="fade-up" data-aos-delay="300">
                     <a href="https://github.com/kmmugyum">
                         <div class="member">
                             <img src="https://avatars.githubusercontent.com/u/30917465?v=4" class="img-fluid shadow-sm" alt="">
@@ -147,7 +147,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-xl-3 col-lg-4 col-6 d-flex" data-aos="fade-up" data-aos-delay="400">
                     <a href="https://github.com/wooj1nBot">
                         <div class="member">
                             <img src="https://avatars.githubusercontent.com/u/117423168?v=4" class="img-fluid shadow-sm" alt="">
@@ -157,7 +157,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-xl-3 col-lg-4 col-6 d-flex" data-aos="fade-up" data-aos-delay="400">
                     <a href="https://github.com/wooj1nBot">
                         <div class="member">
                             <img src="https://avatars.githubusercontent.com/u/117423168?v=4" class="img-fluid shadow-sm" alt="">
@@ -167,7 +167,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-xl-3 col-lg-4 col-6 d-flex" data-aos="fade-up" data-aos-delay="400">
                     <a href="https://github.com/kimsy1106">
                         <div class="member">
                             <img src="https://avatars.githubusercontent.com/u/53938323?v=4" class="img-fluid shadow-sm" alt="">
@@ -178,7 +178,7 @@
                     </a>
                 </div>
             </div>
-            <div class="row gy-2 my-5">
+            <div class="row gy-2 mt-5 mb-4">
                 <div class="col" data-aos="fade-right" data-aos-delay="100">
                     <div class="advisor">
                         <div class="row">
@@ -193,7 +193,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col" data-aos="fade-left" data-aos-delay="200">
+                <div class="col" data-aos="fade-right" data-aos-delay="200">
                     <div class="advisor">
                         <div class="row">
                             <div class="col">
@@ -202,7 +202,7 @@
                             </div>
                             <div class="col">
                                 <h4>이광희 조교님</h4>
-                                <p>인공지능학과</p>
+                                <p>컴퓨터공학과</p>
                             </div>
                         </div>
                     </div>
@@ -211,13 +211,91 @@
         </div>
     </section>
 
-
-
-
+    <!-- Programs -->
+    <section id="programs" class="programs">
+        <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2>프로그램 소개</h2>
+                <p>다음은 23학번들을 위한 프로그램들입니다.</p>
+            </div>
+            <ul class="programs-flters d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+                <li data-filter="*" class="filter-active">모두</li>
+                <li data-filter=".filter-study">Study</li>
+                <li data-filter=".filter-mentor">Mentoring</li>
+                <li data-filter=".filter-fellow">Fellowship</li>
+            </ul>
+            <div class="programs-container" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-xl-4 col-md-6 programs-item filter-study">
+                    <div class="programs-wrap">
+                        <img src="res/image/programs/lecture.png" class="img-fluid" alt="">
+                        <div class="programs-info">
+                            <h4>코딩 교육</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 programs-item filter-fellow">
+                    <div class="programs-wrap">
+                        <img src="res/image/programs/futsal.jpg" class="img-fluid" alt="">
+                        <div class="programs-info">
+                            <h4>풋살 경기</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 programs-item filter-fellow">
+                    <div class="programs-wrap">
+                        <img src="res/image/programs/mt1.jpg" class="img-fluid" alt="">
+                        <div class="programs-info">
+                            <h4>동아리 MT</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 programs-item filter-fellow">
+                    <div class="programs-wrap">
+                        <img src="res/image/programs/mt2.jpg" class="img-fluid" alt="">
+                        <div class="programs-info">
+                            <h4>동아리 MT</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 programs-item filter-fellow">
+                    <div class="programs-wrap">
+                        <img src="res/image/programs/mt3.png" class="img-fluid" alt="">
+                        <div class="programs-info">
+                            <h4>동아리 MT</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 programs-item filter-fellow">
+                    <div class="programs-wrap">
+                        <img src="res/image/programs/party.png" class="img-fluid" alt="">
+                        <div class="programs-info">
+                            <h4>막동 행사</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 programs-item filter-fellow">
+                    <div class="programs-wrap">
+                        <img src="res/image/programs/ai_contest1.png" class="img-fluid" alt="">
+                        <div class="programs-info">
+                            <h4>AI Competition[0]</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-6 programs-item filter-fellow">
+                    <div class="programs-wrap">
+                        <img src="res/image/programs/ai_contest2.png" class="img-fluid" alt="">
+                        <div class="programs-info">
+                            <h4>AI Competition[0] 상장</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer id="footer" class="text-center text-lg-start text-muted">
-        <div class="footer-joinus">
+        <div id="contact" class="footer-joinus">
             <div class="container px-5">
                 <div class="row justify-content-center">
                     <div class="col-lg-6">

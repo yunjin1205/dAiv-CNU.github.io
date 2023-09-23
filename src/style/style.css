@@ -388,6 +388,7 @@
 # About US
 --------------------------------------------------------------*/
 #about {
+    padding: 30px;
     font-size: 20px;
     background: #fff;
 }
@@ -444,6 +445,7 @@
 
 #team .section-title {
     text-align: center;
+    padding-top: 10px;
     padding-bottom: 10px;
 }
 
@@ -453,7 +455,7 @@
     margin-bottom: 10px;
     padding-bottom: 10px;
     position: relative;
-    color: #2D4356;
+    color: #F19F4D;
 }
 
 #team .section-title h2:after {
@@ -462,7 +464,7 @@
     display: block;
     width: 50px;
     height: 3px;
-    background: #2D4356;
+    background: #F19F4D;
     left: 0;
     right: 0;
     bottom: 0;
@@ -517,7 +519,7 @@
     text-align: center;
     background: rgba(215, 215, 215, 0.53);
     border-radius: 10px;
-    border: 2px solid rgba(108, 117, 125, 0.51);
+    border: 1px solid rgba(108, 117, 125, 0.51);
     padding: 15px;
     overflow: hidden;
     box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
@@ -527,6 +529,144 @@
     text-align: center;
     margin-top: 10px;
     margin-bottom: 0px;
+}
+
+/*--------------------------------------------------------------
+# Programs
+--------------------------------------------------------------*/
+#programs {
+    padding: 30px 30px 50px 30px;
+    font-size: 16px;
+    background: #ffffff;
+}
+
+#programs .section-title {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#programs .section-title h2 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    color: #4D8B75;
+}
+
+#programs .section-title h2:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #4D8B75;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+#programs .programs-flters {
+    padding: 0 0 20px 0;
+    margin: 0 auto;
+    list-style: none;
+    text-align: center;
+}
+
+#programs .programs-flters li {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 10px;
+    line-height: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+#programs .programs-flters li:hover,
+#programs .programs-flters li.filter-active {
+    color: var(--color-primary);
+}
+
+#programs .programs-flters li:first-child {
+    margin-left: 0;
+}
+
+#programs .programs-flters li:last-child {
+    margin-right: 0;
+}
+
+@media (max-width: 575px) {
+    #programs .programs-flters li {
+        font-size: 14px;
+        margin: 0 5px;
+    }
+}
+
+#programs .programs-container {
+    column-count: 4;
+    column-gap: 20px;
+}
+
+@media (max-width: 991px) {
+    #programs .programs-container {
+        column-count: 3;
+    }
+}
+
+@media (max-width: 768px) {
+    #programs .programs-container {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 575px) {
+    #programs .programs-container {
+        column-count: 1;
+    }
+}
+
+#programs .programs-item {
+    display: inline-block;
+    width: 100%;
+    break-inside: avoid;
+    margin-bottom: 20px;
+}
+
+#programs .programs-wrap {
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#programs .programs-wrap img {
+    transition: 0.3s;
+    position: relative;
+    z-index: 1;
+}
+
+#programs .programs-wrap .programs-info {
+    padding-top: 10px;
+    padding-bottom: 3px;
+    background-color: #fff;
+    position: relative;
+    border-top: 1px solid #f3f3f3;
+    z-index: 2;
+}
+
+#programs .programs-wrap .programs-info h4 {
+    font-size: 18px;
+    font-weight: 550;
+    text-align: center;
+    color: var(--color-default);
+    transition: 0.3s;
+}
+
+#programs .programs-wrap:hover img {
+    transform: scale(1.1);
 }
 
 /*--------------------------------------------------------------
