@@ -503,6 +503,12 @@
     color: #2D4356;
 }
 
+@media (max-width: 575px) {
+    #team .member h4 {
+        font-size: 18px;
+    }
+}
+
 #team .member span {
     font-style: italic;
     display: block;
