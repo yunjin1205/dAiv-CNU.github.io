@@ -23,23 +23,36 @@
     <!-- Page Scripting -->
     <script type="text/javascript" src="cdn/brython/3.11.3/brython.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="cdn/brython/3.11.3/brython_stdlib.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="cdn/isotope/3.0.5/dist/isotope.pkgd.min.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="src/index.js"></script>
     <script type="text/python" src="src/index.py"></script>
 </head>
-<body onload="brython(); AOS.init();">
+<body>
     <!-- Header -->
     <header id="header" class="fixed-top ">
         <div class="container d-flex align-items-center">
             <h1 class="banner me-auto"><a href="index.html">dAiv</a></h1>
             <nav id="navbar" class="navbar">
-                <ul>
+                <ul class="m-4 m-lg-0">
                     <li><a class="nav-link scrollto active" href="#front">메인</a></li>
                     <li><a class="nav-link scrollto" href="#about">소개</a></li>
                     <li><a class="nav-link scrollto" href="#team">임원진</a></li>
                     <li><a class="nav-link scrollto" href="#programs">프로그램</a></li>
-                    <li class="contest"><a href="#programs"><span>경진대회</span> <i class="bi bi-chevron-down"></i></a>
+                    <li class="contest">
+                        <a href="#programs">
+                            <span>경진대회</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
+                            </svg>
+                        </a>
                         <ul>
-                            <li class="dropdown"><a href="#!"><span>코딩대회</span> <i class="bi bi-chevron-right"></i></a>
+                            <li class="dropdown">
+                                <a href="#!">
+                                    <span>코딩대회</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    </svg>
+                                </a>
                                 <ul>
                                     <li><a href="#!">AI Competition[0]</a></li>
                                     <li><a href="#!">AI Competition[1]</a></li>
@@ -48,12 +61,23 @@
                                     <li><a href="#!">AI Competition[4]</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="#!"><span>공모전</span> <i class="bi bi-chevron-right"></i></a>
+                            <li class="dropdown">
+                                <a href="#!">
+                                    <span>공모전</span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>
+                                </a>
                                 <ul>
                                     <li><a href="#">N/A</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="#!"><span>학술대회</span> <i class="bi bi-chevron-right"></i></a>
+                            <li class="dropdown">
+                                <a href="#!">
+                                    <span>학술대회</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    </svg>
+                                </a>
                                 <ul>
                                     <li><a href="#">N/A</a></li>
                                 </ul>
@@ -62,7 +86,14 @@
                     </li>
                     <li><a class="joinus scrollto" href="#contact">가입 신청하기</a></li>
                 </ul>
-                <i class="bi bi-list mobile-nav-toggle"></i>
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-list mobile-nav-toggle" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" class="bi bi-x mobile-nav-toggle hidden" viewBox="0 0 16 16">
+                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                    </svg>
+                </i>
             </nav>
 
         </div>
@@ -218,13 +249,13 @@
                 <h2>프로그램 소개</h2>
                 <p>다음은 23학번들을 위한 프로그램들입니다.</p>
             </div>
-            <ul class="programs-flters d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
-                <li data-filter="*" class="filter-active">모두</li>
+            <ul class="programs-filter" id="programs_filter" data-aos="fade-up" data-aos-delay="100">
+                <li data-filter="*" class="filter-active">모든 사진</li>
                 <li data-filter=".filter-study">Study</li>
                 <li data-filter=".filter-mentor">Mentoring</li>
                 <li data-filter=".filter-fellow">Fellowship</li>
             </ul>
-            <div class="programs-container" data-aos="fade-up" data-aos-delay="100">
+            <div class="grid programs-container" id="programs_container" data-aos="fade-up" data-aos-delay="100">
                 <div class="col-xl-4 col-md-6 programs-item filter-study">
                     <div class="programs-wrap">
                         <img src="res/image/programs/lecture.png" class="img-fluid" alt="">
@@ -376,9 +407,9 @@
         </div>
     </footer>
 
-    <a href="#" class="btn-back-to-top d-flex align-items-center justify-content-center">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-circle-fill" viewBox="0 0 16 16">
-            <path d="M16 8A8 8 0 1 0 0 8a8 8 0 0 0 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z"/>
+    <a href="#" id="btn-back-to-top" class="btn-back-to-top d-flex align-items-center justify-content-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
         </svg>
     </a>
 </body>
