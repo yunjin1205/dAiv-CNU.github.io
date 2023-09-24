@@ -269,7 +269,8 @@
     color: #4890A6;
 }
 
-.navbar-mobile .contest>.dropdown-active {
+.navbar-mobile .contest>.dropdown-active,
+.navbar-mobile .dropdown>.dropdown-active {
     display: block;
     visibility: visible !important;
 }

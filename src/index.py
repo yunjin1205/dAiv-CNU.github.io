@@ -69,11 +69,11 @@ trace_current_scroll(None)
 window.addEventListener('scroll', trace_current_scroll)
 for toggle in mobile_toggles:
     toggle.onclick = toggle_menu_icon
-for contest in navbar.getElementsByClassName('contest'):
-    print(contest.getElementsByClassName('dropdown'))
-    for drop in contest.getElementsByClassName('dropdown'):
-        drop.onclick = enable_mobile_dropdown
-    contest.onclick = enable_mobile_dropdown
+
+contest = navbar.getElementsByClassName('contest')[0]
+contest.getElementsByTagName('a')[0].onclick = enable_mobile_dropdown
+for dropdown in contest.getElementsByClassName('dropdown'):
+    dropdown.getElementsByTagName('a')[0].onclick = enable_mobile_dropdown
 
 
 ########################################################################################################################
