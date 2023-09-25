@@ -1,0 +1,26 @@
+from flask import Flask, send_from_directory
+
+
+app = Flask(__name__, static_url_path="", static_folder="dist/res/static", template_folder="dist/res/templates")
+
+
+@app.route("/cdn/<path:path>")
+def respond_cdn_res(path):
+    return send_from_directory("cdn", path)
+
+
+@app.route("/dist/<path:path>")
+def respond_dist_source(path):
+    return send_from_directory("dist", path)
+
+
+@app.route("/", defaults={'path': "index", 'file': "index"})
+@app.route("/<file>.html", defaults={'path': "index"})
+@app.route("/<path:path>/", defaults={'file': "index"})
+@app.route("/<path:path>/<file>.html")
+def redirect_to_index(path, file):
+    return app.send_static_file(f"{path}/{file}.html")
+
+
+if __name__ == '__main__':
+    app.run()
