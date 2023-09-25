@@ -167,6 +167,13 @@
     background: #f8f7f7;
 }
 
+@media (min-width: 1200px) {
+    #team .col-xl-2-4 {
+        flex: 0 0 auto;
+        width: 20%;
+    }
+}
+
 #team .section-title {
     text-align: center;
     padding-top: 10px;
