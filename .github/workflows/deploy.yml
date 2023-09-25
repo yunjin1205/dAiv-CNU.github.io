@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Build
         run: |
-          mv -r -f dist/res/static/* .
+          mv -f dist/res/static/* .
           cp -f index/index.html .
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
