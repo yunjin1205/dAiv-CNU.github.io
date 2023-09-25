@@ -587,6 +587,87 @@
     margin: auto;
 }
 
+#programs .program-type-list {
+    float: none;
+    margin: 0 auto;
+}
+
+#programs .program-type {
+    padding: 20px;
+    background: #fff;
+    height: 100%;
+    width: 260px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    #programs .program-type {
+        width: 100%;
+    }
+}
+
+#programs .program-type .icon {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+#programs .program-type .icon svg {
+    color: #222222FF;
+    transition: ease-in-out 0.3s;
+    z-index: 2;
+    position: relative;
+    margin-right: 10px;
+    float: left;
+}
+
+#programs .program-type h3 {
+    color: #222222FF;
+    font-weight: 700;
+    padding-bottom: 6px;
+    font-size: 22px;
+    position: relative;
+    display: inline-block;
+    border-bottom: 3px solid #222222FF;
+    transition: 0.3s;
+}
+
+#programs .program-type p {
+    line-height: 24px;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+#programs .program-type:hover {
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 10px 35px rgba(0, 0, 0, 0.15);
+}
+
+#programs .program-type:hover h3 {
+    color: #4D8B75;
+    border-color: #4D8B75;
+}
+
+#programs .program-type:hover svg {
+    color: #fff;
+    transform: scale(1.2);
+    transition: 0.6s;
+}
+
+#programs .program-type:hover .icon:before {
+    position: absolute;
+    content: "";
+    height: 40px;
+    width: 40px;
+    background: #4D8B75;
+    border-radius: 4px;
+    z-index: 1;
+    top: 0px;
+    left: 0px;
+    transition: 1.2s;
+}
+
 #programs .programs-filter {
     padding: 0 0 20px 0;
     margin: 0 auto;

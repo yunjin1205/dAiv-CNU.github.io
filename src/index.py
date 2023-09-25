@@ -1,4 +1,7 @@
 from browser import document, window
+console = window.console
+pyprint = print
+print = console.log
 
 
 ########################################################################################################################
@@ -79,6 +82,9 @@ for dropdown in contest.getElementsByClassName('dropdown'):
 ########################################################################################################################
 # Programs List
 ########################################################################################################################
+programs_filter = document.getElementById('programs_filter').children
+
+
 def flag_selected_tag(selected):
     for li in document.getElementById('programs_filter').getElementsByClassName('filter-active'):
         li.classList.remove('filter-active')
@@ -86,14 +92,20 @@ def flag_selected_tag(selected):
 
 
 def change_filter(event):
-    filter_value = event.target.attributes['data-filter'].nodeValue
+    filter_value = event.currentTarget.dataset.filter
     window.programs_isotope.arrange({'filter': filter_value})
     window.programs_isotope.on('arrangeComplete', lambda _: window.AOS.refresh())
-    flag_selected_tag(event.target)
+    if 'program-type' in event.currentTarget.classList:
+        for fil in programs_filter:
+            if filter_value == fil.attributes['data-filter'].nodeValue:
+                flag_selected_tag(fil)
+                break
+    else:
+        flag_selected_tag(event.currentTarget)
 
 
-for li in document.getElementById('programs_filter').children:
-    li.onclick = change_filter
+for el in programs_filter + list(document.getElementsByClassName('program-type')):
+    el.onclick = change_filter
 
 
 ########################################################################################################################
