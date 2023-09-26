@@ -21,7 +21,8 @@ def enable_isotope():
 let programs_container = document.getElementById('programs_container')
 if (programs_container) {
     programs_isotope = new Isotope(programs_container, {
-        itemSelector: '.programs-item'
+        itemSelector: '.programs-item',
+        layoutMode: 'masonry'
     });
 }
     """
