@@ -3,7 +3,7 @@ name: Build and Deploy
 on:
   push:
     branches:
-      - main
+      - release
   pull_request:
     branches:
       - '*'
@@ -14,10 +14,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Build
-        run: |
-          mv -f dist/res/static/* .
-          cp -f index/index.html .
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
@@ -25,7 +21,7 @@ jobs:
 
   deploy:
     needs: build
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/release'
     permissions:
       pages: write
       id-token: write
