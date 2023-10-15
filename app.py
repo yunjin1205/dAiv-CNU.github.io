@@ -14,12 +14,12 @@ def respond_dist_source(path):
     return send_from_directory("dist", path)
 
 
-@app.route("/", defaults={'path': "index", 'file': "index"})
-@app.route("/<file>.html", defaults={'path': "index"})
+@app.route("/", defaults={'path': "", 'file': "index"})
+@app.route("/<file>.html", defaults={'path': ""})
 @app.route("/<path:path>/", defaults={'file': "index"})
 @app.route("/<path:path>/<file>.html")
 def redirect_to_index(path, file):
-    return app.send_static_file(f"{path}/{file}.html")
+    return app.send_static_file(f"{path}/{file}.html" if path else f"{file}.html")
 
 
 if __name__ == '__main__':
