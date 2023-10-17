@@ -1,30 +1,45 @@
-import traceback
-
-from browser import document, window
+from browser import document, window, aio
 console = window.console
 pyprint = print
 print = console.log
 
 
+async def insert_template(template_path: str, parent, index: int = -1, oncomplete=lambda: None):
+    result = await window.fetch("/dist/res/templates/"+template_path)
+    insert_element(await result.text(), parent, index)
+    oncomplete()
+
+
+def insert_element(htmlstr: str, parent, index: int = -1):
+    if parent.childNodes.length < index:
+        index = parent.childNodes.length
+    parent.insertBefore(parse_html(htmlstr), parent.childNodes[index])
+
+
+def parse_html(htmlstr: str):
+    template = document.createElement('template')
+    template.innerHTML = htmlstr
+    return template.content
+
+
 ########################################################################################################################
 # Navigation Bar
 ########################################################################################################################
-try:
+def enable_navigation():
     navigation = document.getElementsByClassName('nav-link')
-    navigation_menus = {nav.attributes['href'].value.replace("#", ""): nav for nav in navigation}
+    navigation_menus = {nav.attributes['href'].value.split('#')[-1]: nav for nav in navigation}
+    print(navigation_menus)
     header = document.getElementById('header')
     navbar = document.getElementById('navbar')
     mobile_toggles = document.getElementsByClassName('mobile-nav-toggle')
 
-
     def scroll_to(section: str):
         offset = header.offsetHeight
         if section:
-            section_element = document.getElementById(section.replace("#", ""))
+            section_element = document.getElementById(section.split('#')[-1])
             if section_element:
-                pos = document.getElementById(section.replace("#", "")).offsetTop
+                pos = document.getElementById(section.split('#')[-1]).offsetTop
                 window.scrollTo({'top': pos - offset, 'behavior': "smooth"})
-
 
     def navbar_click(event):
         # fix default location error
@@ -39,18 +54,15 @@ try:
         # do scroll
         scroll_to(event.target.hash)
 
-
     def toggle_menu_icon(_):
         navbar.classList.toggle('navbar-mobile')
         mobile_toggles[0].classList.toggle('hidden')
         mobile_toggles[1].classList.toggle('hidden')
 
-
     def enable_mobile_dropdown(event):
         if 'navbar-mobile' in navbar.classList:
             event.preventDefault()
             event.target.nextElementSibling.classList.toggle('dropdown-active')
-
 
     def trace_current_scroll(_):
         pos = window.scrollY
@@ -59,6 +71,7 @@ try:
         else:
             header.classList.remove('header-scrolled')
         sections = document.getElementsByTagName('section')
+        print(sections)
         for sec in sections:
             menu = navigation_menus.get(sec.id, None)
             if menu:
@@ -68,7 +81,6 @@ try:
                 else:
                     if 'active' in menu.classList:
                         menu.classList.remove('active')
-
 
     scroll_to(window.location.hash)
     for scrll in document.getElementsByClassName('scrollto'):
@@ -82,16 +94,13 @@ try:
     contest.getElementsByTagName('a')[0].onclick = enable_mobile_dropdown
     for dropdown in contest.getElementsByClassName('dropdown'):
         dropdown.getElementsByTagName('a')[0].onclick = enable_mobile_dropdown
-except Exception as _:
-    traceback.print_exc()
 
 
 ########################################################################################################################
 # Back to Top
 ########################################################################################################################
-try:
+def enable_back_to_top():
     back_to_top = document.getElementById("btn-back-to-top")
-
 
     def show_back_to_top_button(_):
         if back_to_top:
@@ -100,8 +109,12 @@ try:
             else:
                 back_to_top.classList.remove('active')
 
-
     show_back_to_top_button(None)
     window.addEventListener('scroll', show_back_to_top_button)
-except Exception as _:
-    traceback.print_exc()
+
+
+########################################################################################################################
+
+# Insert Templates
+aio.run(insert_template("header.html", document.body, 0, enable_navigation))
+aio.run(insert_template("footer.html", document.body, -1, enable_back_to_top))
