@@ -1,5 +1,3 @@
-# HI Testing
-
 <title>dAiv - 다이브 소개 페이지</title>
 <link rel="shortcut icon" href="/dist/res/image/favicon.ico">
 
@@ -23,6 +21,21 @@
 
 <!-- Page Scripting -->
 <script type="text/python" src="/dist/src/common/main.py"></script>
+<script type="text/python">
+    from browser import document, window
+    console = window.console
+    pyprint = print
+    print = console.log
+
+    for element in document.getElementsByTagName("H1"):
+        if ".github.io" in element.innerHTML:
+            element.parentNode.removeChild(element)
+</script>
 <link href="/dist/src/main/index/index.css" rel="stylesheet">
 
-<img src="/res/image/index/programs/ai_contest1.png" style="border: 1px solid grey; border-radius: 4px"/>
+
+
+# HI Testing
+
+
+<img src="/dist/res/image/index/programs/ai_contest1.png" style="border: 1px solid grey; border-radius: 4px"/>
