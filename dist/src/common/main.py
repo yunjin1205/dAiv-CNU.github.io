@@ -17,8 +17,10 @@ mobile_toggles = document.getElementsByClassName('mobile-nav-toggle')
 def scroll_to(section: str):
     offset = header.offsetHeight
     if section:
-        pos = document.getElementById(section.replace("#", "")).offsetTop
-        window.scrollTo({'top': pos - offset, 'behavior': "smooth"})
+        section_element = document.getElementById(section.replace("#", ""))
+        if section_element:
+            pos = document.getElementById(section.replace("#", "")).offsetTop
+            window.scrollTo({'top': pos - offset, 'behavior': "smooth"})
 
 
 def navbar_click(event):
