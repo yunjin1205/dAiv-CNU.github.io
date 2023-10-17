@@ -33,14 +33,15 @@ jobs:
           mv ./dist/res/static ./build
           mv ./dist ./build/dist
           mv ./cdn ./build/cdn
-          mkdir ./build/dest
+          mkdir ./build/_site
+          mkdir ./build/_post
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./build
-          destination: ./build/dest
+          destination: ./build/_post
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
 
