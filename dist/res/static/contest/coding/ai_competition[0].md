@@ -11,31 +11,31 @@
 <script type="text/javascript" src="/cdn/brython/3.11.3/brython.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="/cdn/brython/3.11.3/brython_stdlib.js" crossorigin="anonymous"></script>
 <script type="text/javascript">
+    favicon = document.createElement("link");
+    favicon.type = "image/ico";
+    favicon.rel = "icon";
+    favicon.href = "/dist/res/image/favicon.ico";
+    document.head.appendChild(favicon);
+
+    document.getElementsByTagName("title")[0].innerHTML = "Contest | AI Competition[0]";
+
+    for (let element in document.getElementsByTagName("H1")) {
+        if (element.innerHTML.includes(".github.io")) element.parentNode.removeChild(element);
+    }
+
     window.onload = function(){
         brython();
     }
 </script>
 
 <!-- Page Scripting -->
-<script type="text/python" src="/dist/src/common/main.py"></script>
 <script type="text/python">
     from browser import document, window
     console = window.console
     pyprint = print
     print = console.log
-
-    favicon = document.createElement("link")
-    favicon.type = "image/ico"
-    favicon.rel = "icon"
-    favicon.href = "/dist/res/image/favicon.ico"
-    document.head.apppendChild()
-
-    element.getElementsByTagName("title")[0].innerHTML = "Contest | AI Competition[0]"
-
-    for element in document.getElementsByTagName("H1"):
-        if ".github.io" in element.innerHTML:
-            element.parentNode.removeChild(element)
 </script>
+<script type="text/python" src="/dist/src/common/main.py"></script>
 
 
 <!-- Header -->
