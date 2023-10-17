@@ -2,10 +2,6 @@
 <script src="/cdn/bootstrap/5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <link href="/cdn/bootstrap/5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
-<!-- AOS Assets -->
-<script src="/cdn/aos/2.3.1/dist/aos.js" crossorigin="anonymous"></script>
-<link href="/cdn/aos/2.3.1/dist/aos.css" rel="stylesheet">
-
 <!-- Style Setting -->
 <link href="/dist/res/css/font.css" rel="stylesheet">
 <link href="/dist/res/css/style.css" rel="stylesheet">
@@ -14,7 +10,11 @@
 <!-- Load Js Library -->
 <script type="text/javascript" src="/cdn/brython/3.11.3/brython.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="/cdn/brython/3.11.3/brython_stdlib.js" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/cdn/isotope/3.0.5/dist/isotope.pkgd.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    window.onload = function(){
+        brython();
+    }
+</script>
 
 <!-- Page Scripting -->
 <script type="text/python" src="/dist/src/common/main.py"></script>
@@ -36,7 +36,6 @@
         if ".github.io" in element.innerHTML:
             element.parentNode.removeChild(element)
 </script>
-<link href="/dist/src/main/index/index.css" rel="stylesheet">
 
 
 <!-- Header -->
