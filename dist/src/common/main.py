@@ -28,7 +28,6 @@ def parse_html(htmlstr: str):
 def enable_navigation():
     navigation = document.getElementsByClassName('nav-link')
     navigation_menus = {nav.attributes['href'].value.split('#')[-1]: nav for nav in navigation}
-    print(navigation_menus)
     header = document.getElementById('header')
     navbar = document.getElementById('navbar')
     mobile_toggles = document.getElementsByClassName('mobile-nav-toggle')
@@ -71,7 +70,6 @@ def enable_navigation():
         else:
             header.classList.remove('header-scrolled')
         sections = document.getElementsByTagName('section')
-        print(sections)
         for sec in sections:
             menu = navigation_menus.get(sec.id, None)
             if menu:
@@ -83,8 +81,12 @@ def enable_navigation():
                         menu.classList.remove('active')
 
     scroll_to(window.location.hash)
-    for scrll in document.getElementsByClassName('scrollto'):
-        scrll.onclick = navbar_click
+    if window.location.pathname in ("/", "/index.html"):
+        navigation_menus['front'].classList.add('active')  # set active menu
+        for scrll in document.getElementsByClassName('scrollto'):
+            scrll.onclick = navbar_click
+    else:
+        header.classList.add('header-inner-pages')
     trace_current_scroll(None)
     window.addEventListener('scroll', trace_current_scroll)
     for toggle in mobile_toggles:
@@ -100,7 +102,7 @@ def enable_navigation():
 # Back to Top
 ########################################################################################################################
 def enable_back_to_top():
-    back_to_top = document.getElementById("btn-back-to-top")
+    back_to_top = document.getElementById('btn-back-to-top')
 
     def show_back_to_top_button(_):
         if back_to_top:
@@ -111,6 +113,10 @@ def enable_back_to_top():
 
     show_back_to_top_button(None)
     window.addEventListener('scroll', show_back_to_top_button)
+
+    # hide join-us when it is not on the index page
+    if window.location.pathname not in ("/", "/index.html"):
+        document.getElementById('footer').removeChild(document.getElementById('contact'))
 
 
 ########################################################################################################################

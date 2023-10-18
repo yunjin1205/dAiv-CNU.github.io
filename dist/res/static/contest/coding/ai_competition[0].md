@@ -38,5 +38,14 @@
 <script type="text/python" src="/dist/src/common/main.py"></script>
 
 
+<div style="height: 73px"></div>
+### 🔥 dAiv AI Competition[0]
+<pre>
+다이브에서 정기적으로 개최할 AI Competition에 대해서 소개합니다.
+:: AI Competition[0]은 프롤로그 대회로, 2023년 여름방학때 개최됩니다.
+</pre>
+<pre>
+앞으로의 정식 대회에도 많은 관심 부탁드립니다!
+</pre>
 
 <img src="/dist/res/image/index/programs/ai_contest1.png" style="display: block; border: 1px solid grey; border-radius: 4px"/>
