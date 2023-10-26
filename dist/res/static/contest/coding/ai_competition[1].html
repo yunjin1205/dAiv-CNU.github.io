@@ -5,7 +5,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>Contest | AI Competition[1]</title>
-    <link rel="shortcut icon" href="/dist/res/image/favicon.ico">
+    <link rel="icon" href="/dist/res/image/favicon.ico">
 
     <!-- Bootstrap Assets -->
     <script src="/cdn/bootstrap/5.3.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
@@ -28,9 +28,26 @@
     <script type="text/python" src="/dist/src/common/main.py"></script>
     <script type="text/python" src="/dist/src/common/dashboard.py"></script>
     <script type="text/python" src="/dist/src/main/contest/coding/shared.py"></script>
-    <link href="/dist/src/main/index/index.css" rel="stylesheet">
+    <link href="/dist/src/main/contest/coding/shared.css" rel="stylesheet">
 </head>
 <body onload="brython()">
+    <section id="instruction" class="instruction">
+        <div class="divider my-3 py-4"></div>
+    </section>
 
+    <section id="participants" class="participants">
+        <div></div>
+    </section>
+
+    <section id="qna" class="qna">
+        <div class="d-flex">
+            <div class="col-12 col-lg-6">
+                <h2>qna</h2>
+            </div>
+            <div class="col-12 col-lg-6">
+                <iframe id="pushoong" name="pushoong" height="600px" width="100%"></iframe>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

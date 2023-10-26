@@ -1,7 +1,5 @@
-from browser import document, window
-console = window.console
-pyprint = print
-print = console.log
+from browser import document, window, aio, module_init
+print, pyprint = module_init(__name__, "index.index")
 
 
 ########################################################################################################################

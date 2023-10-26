@@ -1,7 +1,15 @@
+import browser
 from browser import document, window, aio
-console = window.console
-pyprint = print
-print = console.log
+
+
+def module_init(_id, module_name):
+    import sys
+    sys.modules[module_name] = sys.modules[_id]
+    return window.console.log, print
+
+
+print, pyprint = module_init(__name__, "common.main")
+browser.__dict__['module_init'] = module_init
 
 
 async def insert_template(template_path: str, parent, index: int = -1, oncomplete=lambda: None):
