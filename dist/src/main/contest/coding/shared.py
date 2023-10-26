@@ -15,6 +15,7 @@ async def set_iframe():
     pushoong = window.frames['pushoong'].document
     psh_req = await window.fetch("https://pushoong.com/ask/7395560693")
     psh_html = ((await psh_req.text()).replace("115px", "0px")
+                .replace("//t1.daumcdn.net/kas/static/ba.min.js", "")
                 .replace("<head>", "<head>"
                                     "<base href=\"https://pushoong.com/\">"
                                     "<link href=\""+window.location.origin+"/dist/res/css/font.css\" rel=\"stylesheet\">")
