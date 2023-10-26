@@ -27,3 +27,8 @@
     font-weight: 600;
     color: #3F7F93;
 }
+
+#qna .pushoong {
+    border-radius: 10px;
+    box-shadow: 0px 8px 35px rgba(0, 0, 0, 0.1);
+}
