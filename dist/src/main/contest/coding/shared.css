@@ -4,3 +4,26 @@
 #instruction {
     background: #8a909d;
 }
+
+
+
+
+/*--------------------------------------------------------------
+# QnA Section
+--------------------------------------------------------------*/
+#qna {
+    padding: 50px 0;
+    background: #dbe0e8;
+    text-align: center;
+    font-size: 15px;
+    color: #444444;
+}
+
+#qna h2 {
+    font-size: 24px;
+    margin: 0 0 20px 0;
+    padding: 0;
+    line-height: 1;
+    font-weight: 600;
+    color: #3F7F93;
+}
