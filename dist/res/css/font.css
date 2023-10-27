@@ -7,6 +7,13 @@
     font-style: normal;
 }
 
-body, h1, h2, h3, h4, h5, h6, p, pre, span {
+@font-face {
+    font-family: 'HAN-YONG-UN';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/HAN-YONG-UN.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body, h1, h2, h3, h4, h5, h6, p, text, pre, span {
     font-family: 'SUITE-Regular',serif!important;
 }
