@@ -33,11 +33,32 @@ window.Apex = {
 }
 
 
-def build_timeline_chart(colors=None):
+def build_timeline_chart(timeline, colors=None):
     if colors is None:
         colors = ["#fd5f76", "#f3bb44", "#639bc6"]
+    label = ["D-Day", "Period", "Result"]
+    data = [0, 0, 0]
+    default_label = label[0]
 
     now = datetime.now()
+    appl, start, end, result = timeline
+    if now < appl:  # before application startup
+        default_label = "대회 준비중..."
+    elif now < start:  # after application startup
+        pass
+    elif now < end:  # after d-day
+        pass
+    elif now < result:  # before result announcement
+        pass
+    else:  # after the contest finished
+        pass
+
+    def name_formatter(series_name: str, is_total: bool, opts):
+        return f"{series_name} {is_total}"
+
+    def value_formatter(val: str, opts):
+        print(opts)
+        return opts
 
     width = window.innerWidth
 
@@ -72,7 +93,7 @@ def build_timeline_chart(colors=None):
         },
         'plotOptions': {
             'radialBar': {
-                'size': "undefined",
+                'size': None,
                 'inverseOrder': False,
                 'track': {
                     'show': False,
@@ -82,16 +103,20 @@ def build_timeline_chart(colors=None):
                 'dataLabels': {
                     'name': {
                         'show': True,
-                        'formatter': lambda w: 0
+                        'formatter': name_formatter
                     },
                     'value': {
                         'show': True,
-                        'formatter': lambda w: 0
+                        'formatter': value_formatter
                     },
                     'total': {
                         'show': True,
-                        'label': 'Total',
-                        'formatter': lambda w: 0
+                        'label': "대회 준비중..."
+                    },
+                    'style': {
+                        'fontSize': "14px",
+                        'fontWeight': 'bold',
+                        'colors': "rgb(255,255,255)"
                     }
                 }
             },
@@ -100,8 +125,8 @@ def build_timeline_chart(colors=None):
             'lineCap': "round"
         },
         'colors': colors,
-        'series': [100, 100, 80],
-        'labels': ["D-Day", "Period", "Result"],
+        'series': data,
+        'labels': label,
         'legend': {
             'show': True,
             'floating': True,

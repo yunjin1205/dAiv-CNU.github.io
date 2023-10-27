@@ -14,7 +14,23 @@ window.AOS.init()
 ########################################################################################################################
 # Timeline Animation
 ########################################################################################################################
+try:
+    date_format = "%Y년 %m월 %d일"
+    date = lambda d: datetime.strptime(d, date_format)
 
+    application_period = document['application_period'].textContent.split(": ")[1]
+    contest_period = document['contest_period'].textContent.split(": ")[1]
+    result_announcement = document['result_announcement'].textContent.split(": ")[1]
+
+    appl = application_period.split(" (")[0]
+    start, end, *_ = contest_period.split(" (")
+    end = end.split("~ ")[1]
+    result = result_announcement.split(" (")[0]
+    timeline = date(appl), date(start), date(end), date(result)
+
+    window.ApexCharts.new(document.querySelector("#timeline-radial-bar-chart"), build_timeline_chart(timeline)).render()
+except Exception as _:
+    traceback.print_exc()
 
 
 ########################################################################################################################
