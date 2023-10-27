@@ -14,26 +14,7 @@ window.AOS.init()
 ########################################################################################################################
 # Timeline Animation
 ########################################################################################################################
-try:
-    date_format = "%Y년 %m월 %d일"
-    date = lambda d: datetime.strptime(d, date_format)
 
-    application_period = document['application_period'].textContent.split(": ")[1]
-    contest_period = document['contest_period'].textContent.split(": ")[1]
-    result_announcement = document['result_announcement'].textContent.split(": ")[1]
-
-    appl = application_period.split(" (")[0]
-    start, end, *_ = contest_period.split(" (")
-    end = end.split("~ ")[1]
-    result = result_announcement.split(" (")[0]
-    timeline = date(appl), date(start), date(end), date(result)
-
-    chart_json = build_timeline_chart()
-    chart_element = document.getElementById("timeline-radial-bar-chart")
-    chart = window.ApexCharts.new(chart_element, chart_json)
-    chart.render()
-except Exception as _:
-    traceback.print_exc()
 
 
 ########################################################################################################################
@@ -41,7 +22,7 @@ except Exception as _:
 ########################################################################################################################
 async def set_iframe():
     pushoong = window.frames['pushoong'].document
-    psh_req = await window.fetch("https://pushoong.com/ask/7395560693")
+    psh_req = await window.fetch(document.getElementsByName("pushoong")[0].attributes.data.value)
     psh_html = ((await psh_req.text()).replace("115px", "0px")
                 .replace("//t1.daumcdn.net/kas/static/ba.min.js", "")
                 .replace("Kakao.init('4cca00b63eedb801abfc9952db0ee7a3');", "")
@@ -60,4 +41,4 @@ async def set_iframe():
         pushoong.write(psh_html)
         pushoong.close()
 
-#aio.run(set_iframe())
+aio.run(set_iframe())
