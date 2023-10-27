@@ -1,11 +1,39 @@
 from browser import document, window, aio, module_init
 print, pyprint = module_init(__name__, "contest.coding.shared")
+from common.dashboard import build_timeline_chart
+from datetime import datetime
+import traceback
 
 
 ########################################################################################################################
 # AOS Animation
 ########################################################################################################################
 window.AOS.init()
+
+
+########################################################################################################################
+# Timeline Animation
+########################################################################################################################
+try:
+    date_format = "%Y년 %m월 %d일"
+    date = lambda d: datetime.strptime(d, date_format)
+
+    application_period = document['application_period'].textContent.split(": ")[1]
+    contest_period = document['contest_period'].textContent.split(": ")[1]
+    result_announcement = document['result_announcement'].textContent.split(": ")[1]
+
+    appl = application_period.split(" (")[0]
+    start, end, *_ = contest_period.split(" (")
+    end = end.split("~ ")[1]
+    result = result_announcement.split(" (")[0]
+    timeline = date(appl), date(start), date(end), date(result)
+
+    chart_json = build_timeline_chart()
+    chart_element = document.getElementById("timeline-radial-bar-chart")
+    chart = window.ApexCharts.new(chart_element, chart_json)
+    chart.render()
+except Exception as _:
+    traceback.print_exc()
 
 
 ########################################################################################################################
@@ -32,4 +60,4 @@ async def set_iframe():
         pushoong.write(psh_html)
         pushoong.close()
 
-aio.run(set_iframe())
+#aio.run(set_iframe())

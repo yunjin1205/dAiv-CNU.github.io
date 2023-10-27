@@ -2,7 +2,13 @@
 # Instruction Section
 --------------------------------------------------------------*/
 #instruction {
-    background: #8a909d;
+    background: #4a5e79;
+}
+
+#instruction h1, h2 {
+    text-align: center;
+    color: #fff;
+    font-family: 'HAN-YONG-UN',serif!important;
 }
 
 
@@ -29,6 +35,8 @@
 }
 
 #qna .pushoong {
+    height: 600px;
+    width: 100%;
     border-radius: 10px;
     box-shadow: 0px 8px 35px rgba(0, 0, 0, 0.1);
 }
