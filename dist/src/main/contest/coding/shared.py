@@ -16,7 +16,7 @@ window.AOS.init()
 ########################################################################################################################
 try:
     date_format = "%Y년 %m월 %d일"
-    date = lambda d: datetime.strptime(d, date_format)
+    date = lambda d: datetime.strptime(d, date_format).date()
 
     application_period = document['application_period'].textContent.split(": ")[1]
     contest_period = document['contest_period'].textContent.split(": ")[1]

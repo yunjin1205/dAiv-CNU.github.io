@@ -38,30 +38,41 @@ def build_timeline_chart(timeline, colors=None):
         colors = ["#fd5f76", "#f3bb44", "#639bc6"]
     label = ["D-Day", "Period", "Result"]
     data = [0, 0, 0]
-    default_label = label[0]
+    name_labels = {label[0]: "대회 준비중...", label[1]: "D-Day", label[2]: "종료된 대회입니다"}
+    default_label = 0
 
-    now = datetime.now()
+    now = datetime.now().date()
     appl, start, end, result = timeline
+
+    before = (start - appl).days
+    duration = (end - start).days + 1
+    after = (result - end).days
+
     if now < appl:  # before application startup
-        default_label = "대회 준비중..."
+        stat = (appl - now).days
+        name_labels = {label[0]: f"참가신청 시작까지 D-{stat}", label[1]: "대회 준비중...", label[2]: "대회 준비중..."}
     elif now < start:  # after application startup
-        pass
-    elif now < end:  # after d-day
-        pass
+        stat = (start - now).days
+        data = [(1-stat/before)*100, 0, 0]
+        name_labels = {label[0]: f"대회 시작까지 D-{stat}", label[1]: "참가신청기간", label[2]: "참가신청기간"}
+    elif now <= end:  # after d-day
+        default_label = 1
+        stat = (end - now).days
+        data = [100, (1-stat/duration)*100, 0]
+        name_labels = {label[0]: "참가신청마감됨",
+                       label[1]: "D-Day" if now == start else f"Day {(now - start).days + 1} (D-{stat})",
+                       label[2]: f"결과 발표까지 D-{(result - now).days}"}
     elif now < result:  # before result announcement
-        pass
+        default_label = 2
+        stat = (result - now).days
+        data = [100, 100, (1-stat/after)*100]
+        name_labels = {label[0]: "참가신청마감됨", label[1]: "코드제출마감됨", label[2]: f"결과 발표까지 D-{stat}"}
     else:  # after the contest finished
-        pass
-
-    def name_formatter(series_name: str, is_total: bool, opts):
-        return f"{series_name} {is_total}"
-
-    def value_formatter(val: str, opts):
-        print(opts)
-        return opts
+        default_label = 2
+        data = [100, 100, 100]
+        name_labels = {label[0]: "참가신청마감됨", label[1]: "코드제출마감됨", label[2]: "종료된 대회입니다"}
 
     width = window.innerWidth
-
     position = "left"
     vertical_margin = 0
     if width >= 1400:
@@ -102,21 +113,18 @@ def build_timeline_chart(timeline, colors=None):
                 'endAngle': 300,
                 'dataLabels': {
                     'name': {
-                        'show': True,
-                        'formatter': name_formatter
+                        'fontSize': f"{legend}px",
+                        'offsetY': 8,
+                        'formatter': lambda series_name, is_total, opts: name_labels[series_name]
                     },
                     'value': {
-                        'show': True,
-                        'formatter': value_formatter
+                        'show': False
                     },
                     'total': {
                         'show': True,
-                        'label': "대회 준비중..."
-                    },
-                    'style': {
-                        'fontSize': "14px",
-                        'fontWeight': 'bold',
-                        'colors': "rgb(255,255,255)"
+                        'fontSize': f"{legend}px",
+                        'color': colors[default_label],
+                        'label': label[default_label]
                     }
                 }
             },
@@ -157,6 +165,18 @@ def build_timeline_chart(timeline, colors=None):
                         'markers': {
                             'width': 12,
                             'height': 12
+                        }
+                    },
+                    'plotOptions': {
+                        'radialBar': {
+                            'dataLabels': {
+                                'name': {
+                                    'fontSize': "12px"
+                                },
+                                'total': {
+                                    'fontSize': "12px"
+                                }
+                            }
                         }
                     }
                 }
