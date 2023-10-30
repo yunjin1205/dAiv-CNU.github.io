@@ -2,6 +2,7 @@ from browser import document, window, aio, module_init
 print, pyprint = module_init(__name__, "contest.coding.shared")
 from common.dashboard import build_timeline_chart, build_participation_status_chart
 from datetime import datetime
+from random import choice
 import traceback
 
 
@@ -55,8 +56,11 @@ try:
     if count_desc:
         count_desc.innerHTML = count_desc.innerHTML.replace("{participants}", f"{total_team}")
     if count:
-        print(count.innerHTML)
         count.innerHTML = count.innerHTML.replace("{participants}", f"{total_team}")
+
+    chart_wrapper = document.getElementById('participants_status_chart_wrapper')
+    if chart_wrapper:
+        chart_wrapper.classList.add(choice(['chart-wrapper-var0', 'chart-wrapper-var1']))
 
     window.ApexCharts.new(chart,
                           build_participation_status_chart(dataset, parse_timeline_data())

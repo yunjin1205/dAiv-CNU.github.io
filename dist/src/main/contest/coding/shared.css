@@ -46,13 +46,20 @@
 
 #participants .chart-wrapper {
     background-color: #2B2D3E;
-    background-image: linear-gradient(135deg, #df95e7 0%, #8472c3 60%, #5d6492 100%);
     padding: 25px 20px;
     padding-top: 10px;
     padding-bottom: 10px;
     text-shadow: 0 1px 1px 1px #666;
     box-shadow: 0px 1px 34px rgba(158, 117, 246, 0.4);
-    border-radius: 5px;
+    border-radius: 6px;
+}
+
+#participants .chart-wrapper-var0 {
+    background-image: linear-gradient(135deg, #5d6492 0%, #8472c3 40%, #94acbf 100%);
+}
+
+#participants .chart-wrapper-var1 {
+    background-image: linear-gradient(135deg, rgba(223, 149, 231, 0.8) 0%, #8472c3 60%, #5d6492 100%);
 }
 
 #participants .chart-wrapper .details {
@@ -78,32 +85,6 @@
 
 #participants .description p {
     color: #d7d7d7;
-}
-
-
-/*--------------------------------------------------------------
-# Leaderboard Section
---------------------------------------------------------------*/
-#leaderboard {
-    background: #2a3645;
-}
-
-#leaderboard .dashboard {
-    background-color: rgba(255, 255, 255, 0.08);
-    border-radius: 6px;
-    box-shadow: 0px 2px 60px rgba(0, 0, 0, 0.3);
-}
-
-#leaderboard .dashboard h5 {
-    color: white;
-}
-
-#leaderboard .btn-leaderboard {
-    width: 100%;
-}
-
-#leaderboard span, #leaderboard li {
-    color: #b4b4b4;
 }
 
 
@@ -134,4 +115,30 @@
     width: 100%;
     border-radius: 10px;
     box-shadow: 0px 8px 35px rgba(0, 0, 0, 0.1);
+}
+
+
+/*--------------------------------------------------------------
+# Leaderboard Section
+--------------------------------------------------------------*/
+#leaderboard {
+    background: #2a3645;
+}
+
+#leaderboard .dashboard {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    box-shadow: 0px 2px 60px rgba(0, 0, 0, 0.3);
+}
+
+#leaderboard .dashboard h5 {
+    color: white;
+}
+
+#leaderboard .btn-leaderboard {
+    width: 100%;
+}
+
+#leaderboard span, #leaderboard li {
+    color: #b4b4b4;
 }
