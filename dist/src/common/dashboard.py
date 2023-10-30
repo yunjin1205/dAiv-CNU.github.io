@@ -1,11 +1,9 @@
 from browser import document, window, aio, module_init
 print, pyprint = module_init(__name__, "common.dashboard")
 from datetime import datetime
+from random import randrange
 
 
-########################################################################################################################
-# Timeline Animation
-########################################################################################################################
 window.Apex = {
     'chart': {
         'foreColor': "#ccc",
@@ -33,6 +31,9 @@ window.Apex = {
 }
 
 
+########################################################################################################################
+# Timeline Animation
+########################################################################################################################
 def build_timeline_chart(timeline, colors=None):
     if colors is None:
         colors = ["#fd5f76", "#f3bb44", "#639bc6"]
@@ -182,4 +183,82 @@ def build_timeline_chart(timeline, colors=None):
                 }
             }
         ]
+    }
+
+
+########################################################################################################################
+# Timeline Animation
+########################################################################################################################
+def build_participation_status_chart(data_series, timeline, colors=None, padding=None):
+    now = datetime.now().date()
+    appl, start, _, _ = timeline
+
+    before = (start - appl).days
+    stat = (start - now).days - 1
+
+    if len(data_series) < before:
+        data_series = data_series.extend([0 for _ in range(before-len(data_series))])
+
+    if stat > 0:
+        data_series = data_series[:before-stat].extend([randrange(0, 10) for _ in range(stat)])
+    else:
+        data_series = data_series[:before]
+
+    if padding is None:
+        padding = {
+            'top': 20,
+            'bottom': 10,
+            'left': 110
+        }
+
+    if colors is None:
+        colors = ["#fff"]
+
+    return {
+        'chart': {
+            'group': "sparks",
+            'type': "line",
+            'height': 80,
+            'sparkline': {
+                'enabled': True
+            },
+            'dropShadow': {
+                'enabled': True,
+                'top': 1,
+                'left': 1,
+                'blur': 4,
+                'opacity': 0.2,
+            }
+        },
+        'series': [{
+            'data': data_series
+        }],
+        'stroke': {
+            'curve': "smooth"
+        },
+        'markers': {
+            'size': 0
+        },
+        'grid': {
+            'padding': padding
+        },
+        'forecastDataPoints': {
+            'count': stat
+        },
+        'colors': colors,
+        'xaxis': {
+            'crosshairs': {
+                'width': 1
+            },
+        },
+        'tooltip': {
+            'x': {
+                'show': False
+            },
+            'y': {
+                'title': {
+                    'formatter': lambda val, _: "+"
+                }
+            }
+        }
     }
