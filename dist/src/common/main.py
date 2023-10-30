@@ -123,10 +123,6 @@ def enable_back_to_top():
     show_back_to_top_button(None)
     window.addEventListener('scroll', show_back_to_top_button)
 
-    # hide join-us when it is not on the index page
-    if window.location.pathname not in ("/", "/index.html"):
-        document.getElementById('footer').removeChild(document.getElementById('contact'))
-
 
 ########################################################################################################################
 

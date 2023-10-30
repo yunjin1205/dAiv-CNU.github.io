@@ -1,3 +1,5 @@
+// https://codepen.io/dev_loop/pen/jOborLv
+
 window.addEventListener('DOMContentLoaded', () => {
     let cursorElement = document.createElement('div')
     cursorElement.className = 'cursor'
@@ -40,7 +42,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
         initialCursorHeight = circleType.container.style.getPropertyValue("height");
-        console.log(initialCursorHeight);
+        //console.log(initialCursorHeight);
     }, 50);
 
     hoverItems.forEach((item) => {
