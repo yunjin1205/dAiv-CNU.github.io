@@ -35,9 +35,11 @@
     <link href="/dist/src/main/contest/coding/shared.css" rel="stylesheet">
 </head>
 <body onload="brython()">
+    <div id="disable_inner_page_header"></div>
+
     <section id="timeline" class="timeline">
         <div class="divider py-4"></div>
-        <div class="container">
+        <div class="container pb-5">
             <div class="row">
                 <div class="col-md-6 me-auto pb-5" data-aos="zoom-in" data-aos-delay="300">
                     <img src="/dist/res/image/contest/coding/competition_logo.svg" class="img-fluid animated" alt="">
@@ -73,7 +75,7 @@
                                     <li id="result_announcement">결과 발표: 2023년 11월 26일 (일요일)</li>
                                 </ul>
                             </div>
-                            <div class="pt-3" data-aos="fade-up" data-aos-delay="250">
+                            <div class="pt-3" data-aos="fade-up" data-aos-delay="220">
                                 <h5><i class="bi bi-2-square-fill"></i> 데이터 셋 및 태스크</h5>
                                 <ul>
                                     <li>4개의 class가 존재하는 이미지 classification 태스크가 주어질 예정입니다.</li>
@@ -82,7 +84,7 @@
                                     <li>학습에 필요한 TensorFlow의 BaseLineCode를 제공해드립니다.</li>
                                 </ul>
                             </div>
-                            <div class="pt-3" data-aos="fade-up" data-aos-delay="300">
+                            <div class="pt-3" data-aos="fade-up" data-aos-delay="240">
                                 <h5><i class="bi bi-3-square-fill"></i> 세부 제약 조건</h5>
                                 <ul>
                                     <li>모델 관련: Pre-taining 모델 사용 불가합니다</li>
@@ -98,23 +100,23 @@
                         </div>
                         <div class="col-lg-1"><!-- divider --></div>
                         <div class="col-lg-5">
-                            <div class="pt-3 pt-lg-0" data-aos="fade-up" data-aos-delay="400">
+                            <div class="pt-3 pt-lg-0" data-aos="fade-up" data-aos-delay="260">
                                 <h5><i class="bi bi-4-square-fill"></i> 질문 방법⭐</h5>
                                 <ul>
                                     <li>대회 오픈채팅방에서 질문할 때 형식을 준수하여 질문하길 바랍니다.</li>
                                     <i>  형식: 질문 부분 캡쳐 + (오류가 발생했을 시 오류 캡쳐) + 해당 질문에 대한 자신의 생각 서술</i>
                                 </ul>
                             </div>
-                            <div class="pt-3 pt-lg-4" data-aos="fade-up" data-aos-delay="450">
+                            <div class="pt-3 pt-lg-4" data-aos="fade-up" data-aos-delay="280">
                                 <h5><i class="bi bi-5-square-fill"></i> 점수 산정 방식</h5>
                                 <ul>
                                     <li>{1차 평가: 제출된 모델의 test 셋 예측 성능(accuracy)[30%] + 코드 가독성 및 참신함[30%]} + {2차 평가: 세미나 발표[40%]}</li>
                                     <i>  (단, 세미나는 제출 모델 test셋 예측 성능 상위 일부 팀만 진행할 예정입니다. 최종 수상 팀이 5팀이기 때문에 7팀 이상을 선발할 예정이며, 점수의 차이가 적게 나는 경우 모든 팀이 발표할 수도 있습니다.)</i>
                                     <li>1차 평가는 100점 만점입니다. 90점은 제출한 .csv파일에서 맞춘 개수를 환산한 점수, 10점은 참가자들의 모델 파라미터 수를 기준으로 적은 순서대로 등수를 매겨 환산합니다.</li>
-                                    <li>+ (리더보드) 대회 중 평가에는 반영되지 않는 2회의 제출 기회가 있습니다.(날짜 추후 공지) 이때 본인 팀의 .csv 파일을 제출하면 정확도(맞춘 개수 비율)를 팀장에게 알려드립니다. 또한 상위 5개의 팀의 순위도 공지될 예정입니다.</li>
+                                    <li>+ (리더보드) 대회 중 평가에는 반영되지 않는 3회의 제출 기회가 있습니다.(정확한 날짜 추후 공지) 이때 본인 팀의 .csv 파일을 제출하면 정확도(맞춘 개수 비율)를 팀장에게 알려드립니다. 또한 상위 5개의 팀의 순위도 공지될 예정입니다.</li>
                                 </ul>
                             </div>
-                            <div class="pt-3 pt-lg-4" data-aos="fade-up" data-aos-delay="500">
+                            <div class="pt-3 pt-lg-4" data-aos="fade-up" data-aos-delay="300">
                                 <h5><i class="bi bi-6-square-fill"></i> 시상 및 상금</h5>
                                 <ul>
                                     <li>시상식 날짜: 추후 공지</li>
@@ -133,15 +135,57 @@
 
     <section id="participants" class="participants">
         <div class="container" data-aos="fade-up">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="chart-wrapper">
-                        <div id="participants-status-chart"></div>
+            <div class="row py-4">
+                <div class="col-md-6">
+                    <div class="my-3 my-sm-5 mx-4 mx-lg-5 py-3 py-sm-5 px-lg-5">
+                        <div class="chart-wrapper">
+                            <div class="details">
+                                <h5 id="participants_count">{participants}</h5>
+                                <h6>TEAMS</h6>
+                            </div>
+                            <div id="participants-status-chart" data="0, 0, 2, 1, 0, 0, 3, 3"></div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <h6>대회에 참가하는 모든 팀의 팀장 및 팀원은 추후 공지되는 오픈채팅방에 참여해주셔야하며, 이름은 ‘[팀명]이름_직책’으로 통일해주시길 바랍니다. 또한 모든 팀은 아래 공지를 꼭 확인해주시길 바랍니다.</h6>
-                    <a herf="https://forms.gle/UjjTgqL9a9cR6Wc17">참여링크</a>
+                <div class="col-md-6 description">
+                    <div class="pt-4">
+                        <h6 id="participants_count_desc">대회에 관심이 있으신가요?<br>어서 참가신청을 해보세요! 지금까지 {participants}팀이 신청했다네요!</h6>
+                        <a href="https://forms.gle/UjjTgqL9a9cR6Wc17" class="btn btn-light rounded-pill mt-3 mb-4">대회 참가 신청하기</a>
+                        <p>* 대회에 참가하는 모든 팀의 팀장 및 팀원은 추후 공지되는 오픈채팅방에 참여해주셔야하며, 이름은 ‘[팀명]이름_직책’으로 통일해주시길 바랍니다. 또한 모든 팀은 아래 공지를 꼭 확인해주시길 바랍니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="qna" class="qna">
+        <div class="container" data-aos="fade-up">
+            <div class="row">
+                <div class="col-md-6 details justify-content-center">
+                    <div class="mb-4">
+                        <h4>QnA</h4>
+                        <br>
+                        <h6>dAiv의 AI Competition에 대해 궁금하신 점이 있다면 질문을 남겨주세요!</h6>
+                        <p>- 익명으로 등록된 질문은 모두에게 공개됩니다.- </p>
+                        <text>대회 참가자이신 경우 대회 시작 후 공개되는 카카오톡 오픈채팅방을 통해 질문해주시기 바랍니다.</text>
+                    </div>
+                </div>
+                <div class="col-md-6 px-3 px-md-5">
+                    <iframe class="pushoong" name="pushoong" data="https://pushoong.com/ask/7395560693"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="leaderboard" class="leaderboard">
+        <div class="container py-4" data-aos="fade-up">
+            <br>
+            <div class="dashboard mt-3">
+                <div class="pt-4 ps-5">
+                    <h5>LEADERBOARD</h5>
+                </div>
+                <div class="chart-wrapper">
+                    <div id="scorepanel-bar-chart"></div>
                     [dAiv부수기]
                     [SLAM]
                     [고양이손]
@@ -153,45 +197,16 @@
                     [일단고]
                 </div>
             </div>
-        </div>
-    </section>
-
-
-
-
-
-
-    <section id="score" class="score">
-        <div class="container" data-aos="fade-up">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="chart-wrapper">
-                        <div id="scorepanel-bar-chart"></div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <h6>.csv 파일 제출에 대해서 안내드리도록 하겠습니다. 이번 제출은 평가에 반영되는 것은 아니며, test셋에 대한 점수를 및 등수 확인을 위한 것으로 필수는 아님을 말씀드립니다.
-
-                        날짜 : ~ 10/8(일) 18:00
-                        제출 파일 : [dAiv_01]팀명_제출자명.csv
-                        * *이메일 제목도 마찬가지로 '[dAiv_01]팀명_제출자명'으로 부탁드립니다!**
-
-                        제출 해야할 .csv 파일은 제공된 test.csv 파일에서 label 부분이 채워진 결과입니다. 꼭 팀당 하나의 파일만 제출 부탁드리며, 마지막으로 제출한 파일 기준으로 테스트 할 예정입니다.</h6>
-                    <a herf="https://forms.gle/UjjTgqL9a9cR6Wc17">참여링크</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="qna" class="qna">
-        <div class="container" data-aos="fade-up">
-            <div class="row">
-                <div class="col-sm-6">
-                    <h2>QnA</h2>
-                </div>
-                <div class="col-sm-6 px-3 px-sm-5">
-                    <iframe class="pushoong" name="pushoong" data="https://pushoong.com/ask/7395560693"></iframe>
-                </div>
+            <div id="btn_leaderboard" class="btn btn-warning btn-leaderboard mt-2">리더보드 열기</div>
+            <div class="mt-3">
+                <span>대회 기간 중 3회의 csv 파일 제출은 평가에 반영되는 것은 아니며, test셋에 대한 점수를 및 등수 확인을 위한 것으로 필수는 아님을 말씀드립니다.</span>
+                <br>
+                <span>제출 해야할 .csv 파일은 제공된 test.csv 파일에서 label 부분이 채워진 결과입니다. 꼭 팀당 하나의 파일만 제출 부탁드리며, 마지막으로 제출한 파일 기준으로 테스트 할 예정입니다.</span>
+                <ul>
+                    <li>날짜: 2023년 10월 08일(일) | 11월 01일(일) | 11월 13일(월) 18:00까지 수합</li>
+                    <li>제출 파일: [dAiv_01]팀명_제출자명.csv</li>
+                </ul>
+                <br>
             </div>
         </div>
     </section>
