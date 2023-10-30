@@ -23,6 +23,10 @@
         brython();
     }
 </script>
+<script src="/cdn/gsap/3.12.2/gasp.min.js"></script>
+<script src="/cdn/CircleType/2.3.1/dist/circletype.min.js"></script>
+<script src="/cdn/animated-cursor/anicursor.js"></script>
+<link href="/cdn/animated-cursor/anicursor.css" rel="stylesheet">
 
 <!-- Page Scripting -->
 <script type="text/python">
