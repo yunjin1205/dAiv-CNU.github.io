@@ -7,7 +7,7 @@
     padding: 15px 0;
 }
 
-#header.header-scrolled, .header-inner-pages {
+#header.header-scrolled, #header.header-inner-pages {
     background: rgba(90, 110, 140, 0.95);
 }
 
@@ -83,15 +83,15 @@
     border-radius: 50px;
     color: #fff;
     font-size: 14px;
-    border: 3px solid #334D63;
+    border: 3px solid rgba(0, 0, 0, 0.2);
     font-weight: 600;
-    background: rgba(45, 67, 86, 0.42);
+    background: rgba(0, 0, 0, 0.15);
 }
 
 .navbar .joinus:hover,
 .navbar .joinus:focus:hover {
     color: #fff;
-    background: #2D4356;
+    background: rgba(0, 0, 0, 0.4);
 }
 
 .navbar .contest ul {
@@ -182,6 +182,12 @@
     .navbar ul {
         display: none;
     }
+
+    .navbar .joinus:hover,
+    .navbar .joinus:focus:hover {
+        color: #fff;
+        background: #2D4356;
+    }
 }
 
 .navbar-mobile {
@@ -233,7 +239,7 @@
     color: #4890A6;
 }
 
-.navbar-mobile .joinus, .joinus:focus {
+.navbar-mobile .joinus, .navbar-mobile .joinus:focus {
     margin: 15px;
     color: #fff;
     background: #5A6E8C;

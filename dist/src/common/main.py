@@ -94,7 +94,8 @@ def enable_navigation():
         for scrll in document.getElementsByClassName('scrollto'):
             scrll.onclick = navbar_click
     else:
-        header.classList.add('header-inner-pages')
+        if not document.getElementById('disable_inner_page_header'):
+            header.classList.add('header-inner-pages')
     trace_current_scroll(None)
     window.addEventListener('scroll', trace_current_scroll)
     for toggle in mobile_toggles:
