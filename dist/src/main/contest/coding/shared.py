@@ -1,9 +1,10 @@
 from browser import document, window, aio, module_init
 print, pyprint = module_init(__name__, "contest.coding.shared")
-from common.dashboard import build_timeline_chart, build_participation_status_chart
+from common.dashboard import build_timeline_chart, build_participation_status_chart, build_leaderboard_chart
 from datetime import datetime
 from random import choice
 import traceback
+import json
 
 
 def parse_timeline_data():
@@ -32,7 +33,7 @@ window.AOS.init()
 # Timeline Animation
 ########################################################################################################################
 try:
-    window.ApexCharts.new(document.querySelector("#timeline-radial-bar-chart"),
+    window.ApexCharts.new(document.querySelector("#timeline_radial_bar_chart"),
                           build_timeline_chart(parse_timeline_data())
                           ).render()
 except Exception as _:
@@ -43,7 +44,7 @@ except Exception as _:
 # Participation Status Animation
 ########################################################################################################################
 try:
-    chart = document.querySelector("#participants-status-chart")
+    chart = document.querySelector("#participants_status_chart")
     if chart.attributes.data.value:
         dataset = list(map(int, chart.attributes.data.value.replace(' ', '').split(',')))
     else:
@@ -62,9 +63,7 @@ try:
     if chart_wrapper:
         chart_wrapper.classList.add(choice(['chart-wrapper-var0', 'chart-wrapper-var1']))
 
-    window.ApexCharts.new(chart,
-                          build_participation_status_chart(dataset, parse_timeline_data())
-                          ).render()
+    window.ApexCharts.new(chart, build_participation_status_chart(dataset, parse_timeline_data())).render()
 except Exception as _:
     traceback.print_exc()
 
@@ -99,3 +98,72 @@ async def set_iframe():
         pushoong.close()
 
 #aio.run(set_iframe())
+
+
+########################################################################################################################
+# Leaderboard settings
+########################################################################################################################
+def open_leaderboard(e):
+    try:
+        async def remove_show_button(btn):
+            value = btn.offsetHeight
+            while True:
+                if value < 0:
+                    break
+                elif value < 15:
+                    btn.innerHTML = ""
+                    btn.style.padding = "1.5px"
+                value -= 1
+                btn.style.height = f"{value}px"
+                await aio.sleep(0.005)
+
+        async def remove_hider(obj):
+            value = 1
+            while True:
+                if value < 0:
+                    break
+                value -= 0.01
+                obj.style.opacity = f"{value}"
+                await aio.sleep(0.01)
+            obj.remove()
+
+        aio.run(remove_show_button(e.currentTarget))
+        hider = document.getElementById('leaderboard_hider')
+        if hider:
+            aio.run(remove_hider(hider))
+    except Exception as _:
+        traceback.print_exc()
+
+
+try:
+    leaderboard = document.querySelector("#leaderboard_chart")
+    if leaderboard.innerHTML:
+        raw_data = leaderboard.innerHTML
+        leaderboard.innerHTML = ""
+        dataset = json.loads(raw_data)
+    else:
+        dataset = {}
+        raise NotImplementedError("Please implement other dataset query methods.")
+
+    # arrange dataset
+    # # select sorting criteria
+    criteria = ""
+    for key, v_arry in dataset['values'].items():
+        if sum(v_arry) <= 0:
+            break
+        criteria = key
+    # # sort
+    if criteria:
+        zipped = zip(dataset['values'][criteria], zip(dataset['teams'], *dataset['values'].values()))
+        sorted_zip = [value for key, value in sorted(zipped, key=lambda x: x[0], reverse=True)]
+        unzipped = list(zip(*sorted_zip))
+        dataset['teams'] = unzipped.pop(0)
+        dataset['values'] = {key: dt for dt, key in zip(unzipped, dataset['values'].keys())}
+
+    window.ApexCharts.new(leaderboard, build_leaderboard_chart(**dataset)).render()
+
+    opener = document.getElementById('btn_leaderboard')
+    if opener:
+        opener.bind('click', open_leaderboard)
+except Exception as _:
+    traceback.print_exc()

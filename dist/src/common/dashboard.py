@@ -262,3 +262,91 @@ def build_participation_status_chart(data_series, timeline, colors=None, padding
             }
         }
     }
+
+
+########################################################################################################################
+# Leaderboard Animation
+########################################################################################################################
+def build_leaderboard_chart(values={}, teams=[], colors=None):
+    if colors is None:
+        colors = ["#fd5f76", "#639bc6", "#00b074", "#f3bb44"]
+
+    width = window.innerWidth
+    show_len = len(teams)
+    if width < 768:  # show only first 5 datasets
+        show_len = 5
+        teams = teams[:show_len]
+
+    series = [{'name': key, 'type': "line" if len(values)-1==i else "column", 'data': value[:show_len]} for i, (key, value) in enumerate(values.items())]
+
+    return {
+        'series': series,
+        'chart': {
+            'height': 400,
+            'type': "bar",
+            'stacked': False,
+            'toolbar': {
+                'show': False,
+            }
+        },
+        'dataLabels': {
+            'enabled': False
+        },
+        'stroke': {
+            'show': True,
+            'width': [4 if len(values)-1==i else 1 for i in range(len(values))],
+            'curve': "smooth"
+        },
+        'fill': {
+            'opacity': 1,
+        },
+        'colors': colors,
+        'legend': {
+            'show': True,
+            'position': "top",
+            'horizontalAlign': "right",
+            'markers': {
+                'width': 20,
+                'height': 10,
+                'radius': 2,
+            },
+        },
+        'plotOptions': {
+            'bar': {
+                'horizontal': False,
+                'columnWidth': "50%",
+                'barHeight': "10%",
+                'distributed': False,
+            },
+        },
+        'tooltip': {
+            'shared': True,
+            'intersect': False,
+            'followCursor': True,
+            'fixed': {
+                'enabled': False,
+            },
+            'x': {
+                'show': False,
+            },
+            'y': {
+                'title': {
+                    'formatter': lambda series_name, obj: series_name
+                },
+                'formatter': lambda value, array: value  # array = {series, seriesIndex, dataPointIndex, w}
+            },
+        },
+        'xaxis': {
+            'categories': teams,
+            'axisBorder': {
+                'show': False,
+            },
+            'axisTicks': {
+                'show': False,
+            },
+            'crosshairs': {
+                'width': 40,
+            }
+        }
+    }
+
