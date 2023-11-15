@@ -162,7 +162,9 @@ try:
         dataset['teams'] = unzipped.pop(0)
         dataset['values'] = {key: dt for dt, key in zip(unzipped, dataset['values'].keys())}
 
-    window.ApexCharts.new(leaderboard, build_leaderboard_chart(**dataset)).render()
+    chart = window.ApexCharts.new(leaderboard, build_leaderboard_chart(**dataset))
+    chart.render()
+    [chart.toggleSeries(key) for key in keys if sum(dataset['values'][key]) <= 0]
 
     opener = document.getElementById('btn_leaderboard')
     if opener:
