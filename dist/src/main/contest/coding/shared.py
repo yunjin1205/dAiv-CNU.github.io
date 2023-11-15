@@ -140,7 +140,7 @@ try:
     if leaderboard.innerHTML:
         raw_data = leaderboard.innerHTML
         leaderboard.innerHTML = ""
-        dataset = json.loads(raw_data)
+        dataset = json.loads(raw_data, parse_float=lambda x: float(x))
     else:
         dataset = {}
         raise NotImplementedError("Please implement other dataset query methods.")
@@ -148,10 +148,12 @@ try:
     # arrange dataset
     # # select sorting criteria
     criteria = ""
-    for key, v_arry in dataset['values'].items():
-        if sum(v_arry) <= 0:
-            break
+    keys = list(dataset['values'].keys())
+    keys.reverse()
+    for key in keys:  # dict(reversed(a['values'].items())) not working properly in brython
         criteria = key
+        if sum(dataset['values'][key]) > 0:
+            break
     # # sort
     if criteria:
         zipped = zip(dataset['values'][criteria], zip(dataset['teams'], *dataset['values'].values()))

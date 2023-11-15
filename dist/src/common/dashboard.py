@@ -269,7 +269,8 @@ def build_participation_status_chart(data_series, timeline, colors=None, padding
 ########################################################################################################################
 def build_leaderboard_chart(values={}, teams=[], colors=None):
     if colors is None:
-        colors = ["#fd5f76", "#639bc6", "#00b074", "#f3bb44"]
+        colors = ["#fd5f76", "#639bc6", "#00b074"][:len(values)-1]
+        colors.append("#f3bb44")
 
     width = window.innerWidth
     show_len = len(teams)
@@ -308,8 +309,8 @@ def build_leaderboard_chart(values={}, teams=[], colors=None):
             'markers': {
                 'width': 20,
                 'height': 10,
-                'radius': 2,
-            },
+                'radius': 2
+            }
         },
         'plotOptions': {
             'bar': {
@@ -346,6 +347,11 @@ def build_leaderboard_chart(values={}, teams=[], colors=None):
             },
             'crosshairs': {
                 'width': 40,
+            }
+        },
+        'yaxis': {
+            'labels': {
+                'formatter': lambda *args: round(args[0], 1)
             }
         }
     }
