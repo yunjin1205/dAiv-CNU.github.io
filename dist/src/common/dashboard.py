@@ -61,13 +61,13 @@ def build_timeline_chart(timeline, colors=None):
         stat = (end - now).days
         data = [100, (1-stat/duration)*100, 0]
         name_labels = {label[0]: "참가신청마감됨",
-                       label[1]: "D-Day" if now == start else f"Day {(now - start).days + 1} (D-{stat if start else 'D-Day'})",
+                       label[1]: "D-Day" if now == start else f"Day {(now - start).days + 1} (D-{stat if stat else 'Day'})",
                        label[2]: f"결과 발표까지 D-{(result - now).days}"}
     elif now <= result:  # before result announcement
         default_label = 2
         stat = (result - now).days
         data = [100, 100, (1-stat/after)*100]
-        name_labels = {label[0]: "참가신청마감됨", label[1]: "코드제출마감됨", label[2]: f"결과 발표까지 D-{stat if start else 'D-Day'}"}
+        name_labels = {label[0]: "참가신청마감됨", label[1]: "코드제출마감됨", label[2]: f"결과 발표까지 D-{stat if stat else 'Day'}"}
     else:  # after the contest finished
         default_label = 2
         data = [100, 100, 100]
