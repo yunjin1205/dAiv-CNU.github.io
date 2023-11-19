@@ -67,7 +67,7 @@ def build_timeline_chart(timeline, colors=None):
         default_label = 2
         stat = (result - now).days
         data = [100, 100, (1-stat/after)*100]
-        name_labels = {label[0]: "참가신청마감됨", label[1]: "코드제출마감됨", label[2]: f"결과 발표까지 D-{stat}"}
+        name_labels = {label[0]: "참가신청마감됨", label[1]: "코드제출마감됨", label[2]: f"결과 발표까지 D-{stat if start else 'D-Day'}"}
     else:  # after the contest finished
         default_label = 2
         data = [100, 100, 100]
@@ -187,7 +187,7 @@ def build_timeline_chart(timeline, colors=None):
 
 
 ########################################################################################################################
-# Timeline Animation
+# Participation Animation
 ########################################################################################################################
 def build_participation_status_chart(data_series, timeline, colors=None, padding=None):
     now = datetime.now().date()
