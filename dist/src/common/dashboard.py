@@ -269,7 +269,7 @@ def build_participation_status_chart(data_series, timeline, colors=None, padding
 ########################################################################################################################
 def build_leaderboard_chart(values={}, teams=[], colors=None):
     if colors is None:
-        colors = ["#00b074", "#639bc6", "#fd5f76"][:len(values)-1]
+        colors = ["#fd5f76", "#639bc6", "#00b074"][:len(values)-1]
         colors.append("#f3bb44")
 
     width = window.innerWidth
