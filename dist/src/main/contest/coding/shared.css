@@ -168,6 +168,11 @@
 --------------------------------------------------------------*/
 #winnerpodium {
     background: #383f49;
+    text-align: center;
+}
+
+#winnerpodium .container h4 {
+    color: #fff;
 }
 
 #winnerpodium .background-container {
@@ -181,11 +186,46 @@
     justify-content: center;
 }
 
+#winnerpodium .foreground-wrapper a {
+    font-size: 12px;
+    color: #4a515b;
+}
+
 #winnerpodium .foreground-container {
     position: absolute;
     width: 64%;
     padding-bottom: 30px;
     bottom: 0;
+}
+
+#winnerpodium .tropy-container {
+    position: relative;
+    width: 60%;
+    height: 60%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    animation: up-down 1s ease-in-out infinite alternate-reverse both;
+}
+
+@keyframes up-down {
+    0% {
+        transform: translateY(40px);
+    }
+    100% {
+        transform: translateY(-40px);
+    }
+}
+
+#winnerpodium .result-panel-wrapper {
+    position: relative;
+}
+
+#winnerpodium .winner-card-list {
+    position: absolute;
+    margin-bottom: 48px;
+    margin-left: 20px;
+    margin-right: 20px;
+    bottom: 500px;
 }
 
 @media (max-width: 1399px) {
@@ -194,6 +234,9 @@
     }
     #winnerpodium .foreground-container {
         width: 64%;
+    }
+    #winnerpodium .winner-card-list {
+        bottom: 350px;
     }
 }
 
@@ -204,6 +247,9 @@
     #winnerpodium .foreground-container {
         width: 70%;
     }
+    #winnerpodium .winner-card-list {
+        bottom: 220px;
+    }
 }
 
 @media (max-width: 991px) {
@@ -213,6 +259,9 @@
     #winnerpodium .foreground-container {
         width: 100%;
     }
+    #winnerpodium .winner-card-list {
+        bottom: 160px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -221,6 +270,13 @@
     }
     #winnerpodium .foreground-container {
         width: 100%;
+    }
+    #winnerpodium .tropy-container {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+    #winnerpodium .winner-card-list {
+        bottom: 150px;
     }
 }
 
@@ -233,6 +289,15 @@
     }
     #winnerpodium .foreground-container {
         width: 100%;
+    }
+    #winnerpodium .tropy-container {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+    #winnerpodium .winner-card-list {
+        margin-left: 10px;
+        margin-right: 10px;
+        bottom: 14px;
     }
 }
 
@@ -247,6 +312,13 @@
         width: 100%;
         padding-bottom: 40px;
     }
+    #winnerpodium .tropy-container {
+        padding-top: 200px;
+        padding-bottom: 200px;
+    }
+    #winnerpodium .winner-card-list {
+        bottom: 50px;
+    }
 }
 
 @media (max-width: 297px) {
@@ -260,27 +332,73 @@
         width: 100%;
         padding-bottom: 50px;
     }
+    #winnerpodium .tropy-container {
+        padding-top: 270px;
+        padding-bottom: 270px;
+    }
+    #winnerpodium .winner-card-list {
+        bottom: 0px;
+    }
 }
 
-#winnerpodium .podium {
-    background-color: #383f49;
+#winnerpodium .winner-card {
+    padding: 20px;
+    background: #ffffffbf;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 2px 20px rgba(255, 255, 255, 0.1);
 }
 
-#winnerpodium .podium h5 {
-    color: white;
+#winnerpodium .winner-card .icon {
+    position: relative;
+    margin-bottom: 10px;
 }
 
-#winnerpodium .btn-winnerpodium {
-    width: 100%;
-    height: 38px;
-    display: block;
-    overflow: hidden;
+#winnerpodium .winner-card .icon svg {
+    color: #383f49;
+    transition: ease-in-out 0.3s;
 }
 
-#winnerpodium span, #winnerpodium li {
-    color: #b4b4b4;
+#winnerpodium .winner-card h3 {
+    color: #383f49;
+    font-weight: 700;
+    padding-top: 10px;
+    padding-bottom: 6px;
+    font-size: 22px;
+    transition: 0.3s;
 }
 
-#winnerpodium .animated {
-    animation: up-down 2s ease-in-out infinite alternate-reverse both;
+#winnerpodium .winner-card p {
+    color: #383f49;
+    font-weight: 600;
+    line-height: 24px;
+    font-size: 16px;
+    margin-bottom: 0;
+}
+
+#winnerpodium .winner-card:hover {
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 10px 35px rgba(255, 255, 255, 0.15);
+}
+
+#winnerpodium .winner-card:hover h3 {
+    color: #383f49;
+    border-color: #383f49;
+}
+
+#winnerpodium .winner-card:hover svg {
+    color: #fff;
+    transform: scale(0.7);
+    transition: 0.6s;
+}
+
+#winnerpodium .winner-card:hover .icon:before {
+    position: absolute;
+    content: "";
+    height: 40px;
+    width: 40px;
+    background: #383f49;
+    border-radius: 6px;
+    transition: 1.2s;
 }

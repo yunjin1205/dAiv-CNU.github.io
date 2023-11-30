@@ -171,3 +171,46 @@ try:
         opener.bind('click', open_leaderboard)
 except Exception as _:
     traceback.print_exc()
+
+
+########################################################################################################################
+# Winner Poduim settings
+########################################################################################################################
+def open_winnerpodium(e):
+    try:
+        result_panel = document['winnerpodium_result_panel']
+        if result_panel:
+            async def show_result(pan):
+                value = 0
+                while True:
+                    if value > 1:
+                        break
+                    value += 0.01
+                    pan.style.opacity = f"{value}"
+                    await aio.sleep(0.01)
+
+            aio.run(show_result(result_panel))
+
+        async def remove_show_button(btn):
+            value = 1
+            while True:
+                if value < 0:
+                    break
+                value -= 0.01
+                btn.style.opacity = f"{value}"
+                await aio.sleep(0.01)
+
+        aio.run(remove_show_button(e.currentTarget))
+    except Exception as _:
+        traceback.print_exc()
+
+
+try:
+    opener = document['btn_open_winnerpodium']
+    if opener:
+        opener.bind('click', open_winnerpodium)
+    panel = document['winnerpodium_result_panel']
+    if panel:
+        panel.style.opacity = "0"
+except Exception as _:
+    traceback.print_exc()
