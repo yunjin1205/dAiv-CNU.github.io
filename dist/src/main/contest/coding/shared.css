@@ -226,10 +226,39 @@
 
 @media (max-width: 575px) {
     #winnerpodium .background-container {
-        height: 62vh;
+        display: block;
+        width: 100%;
+        aspect-ratio: 1 / 1.05;
+        height: 100%;
     }
     #winnerpodium .foreground-container {
         width: 100%;
+    }
+}
+
+@media (max-width: 465px) {
+    #winnerpodium .background-container {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1;
+        height: 100%;
+    }
+    #winnerpodium .foreground-container {
+        width: 100%;
+        padding-bottom: 40px;
+    }
+}
+
+@media (max-width: 297px) {
+    #winnerpodium .background-container {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1.05 / 1;
+        height: 100%;
+    }
+    #winnerpodium .foreground-container {
+        width: 100%;
+        padding-bottom: 50px;
     }
 }
 
