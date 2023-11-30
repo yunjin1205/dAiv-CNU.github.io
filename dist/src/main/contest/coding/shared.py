@@ -97,7 +97,7 @@ async def set_iframe():
         pushoong.write(psh_html)
         pushoong.close()
 
-#aio.run(set_iframe())
+aio.run(set_iframe())
 
 
 ########################################################################################################################
