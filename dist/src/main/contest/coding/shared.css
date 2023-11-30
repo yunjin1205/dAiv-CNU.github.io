@@ -161,3 +161,97 @@
 #leaderboard span, #leaderboard li {
     color: #b4b4b4;
 }
+
+
+/*--------------------------------------------------------------
+# Winner Podium Section
+--------------------------------------------------------------*/
+#winnerpodium {
+    background: #383f49;
+}
+
+#winnerpodium .background-container {
+    width: 100vw;
+    height: 92vh;
+}
+
+#winnerpodium .foreground-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+#winnerpodium .foreground-container {
+    position: absolute;
+    width: 64%;
+    padding-bottom: 30px;
+    bottom: 0;
+}
+
+@media (max-width: 1399px) {
+    #winnerpodium .background-container {
+        height: 78vh;
+    }
+    #winnerpodium .foreground-container {
+        width: 64%;
+    }
+}
+
+@media (max-width: 1199px) {
+    #winnerpodium .background-container {
+        height: 72vh;
+    }
+    #winnerpodium .foreground-container {
+        width: 70%;
+    }
+}
+
+@media (max-width: 991px) {
+    #winnerpodium .background-container {
+        height: 78vh;
+    }
+    #winnerpodium .foreground-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    #winnerpodium .background-container {
+        height: 60vh;
+    }
+    #winnerpodium .foreground-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 575px) {
+    #winnerpodium .background-container {
+        height: 62vh;
+    }
+    #winnerpodium .foreground-container {
+        width: 100%;
+    }
+}
+
+#winnerpodium .podium {
+    background-color: #383f49;
+}
+
+#winnerpodium .podium h5 {
+    color: white;
+}
+
+#winnerpodium .btn-winnerpodium {
+    width: 100%;
+    height: 38px;
+    display: block;
+    overflow: hidden;
+}
+
+#winnerpodium span, #winnerpodium li {
+    color: #b4b4b4;
+}
+
+#winnerpodium .animated {
+    animation: up-down 2s ease-in-out infinite alternate-reverse both;
+}
