@@ -177,7 +177,7 @@
 
 #winnerpodium .background-container {
     width: 100vw;
-    height: 92vh;
+    height: 90vh;
 }
 
 #winnerpodium .foreground-wrapper {
@@ -187,7 +187,7 @@
 }
 
 #winnerpodium .foreground-wrapper a {
-    font-size: 12px;
+    font-size: 10px;
     color: #4a515b;
 }
 
@@ -225,7 +225,7 @@
     margin-bottom: 48px;
     margin-left: 20px;
     margin-right: 20px;
-    bottom: 500px;
+    bottom: 250px;
 }
 
 @media (max-width: 1399px) {
@@ -236,7 +236,7 @@
         width: 64%;
     }
     #winnerpodium .winner-card-list {
-        bottom: 350px;
+        bottom: 160px;
     }
 }
 
@@ -248,7 +248,7 @@
         width: 70%;
     }
     #winnerpodium .winner-card-list {
-        bottom: 220px;
+        bottom: 90px;
     }
 }
 
@@ -259,8 +259,12 @@
     #winnerpodium .foreground-container {
         width: 100%;
     }
+    #winnerpodium .tropy-container {
+        padding-top: 140px;
+        padding-bottom: 120px;
+    }
     #winnerpodium .winner-card-list {
-        bottom: 160px;
+        bottom: 100px;
     }
 }
 
@@ -272,11 +276,11 @@
         width: 100%;
     }
     #winnerpodium .tropy-container {
-        padding-top: 100px;
-        padding-bottom: 100px;
+        padding-top: 250px;
+        padding-bottom: 140px;
     }
     #winnerpodium .winner-card-list {
-        bottom: 150px;
+        bottom: 40px;
     }
 }
 
@@ -291,13 +295,13 @@
         width: 100%;
     }
     #winnerpodium .tropy-container {
-        padding-top: 120px;
-        padding-bottom: 120px;
+        padding-top: 220px;
+        padding-bottom: 220px;
     }
     #winnerpodium .winner-card-list {
         margin-left: 10px;
         margin-right: 10px;
-        bottom: 14px;
+        bottom: 80px;
     }
 }
 
@@ -313,11 +317,11 @@
         padding-bottom: 40px;
     }
     #winnerpodium .tropy-container {
-        padding-top: 200px;
-        padding-bottom: 200px;
+        padding-top: 360px;
+        padding-bottom: 340px;
     }
     #winnerpodium .winner-card-list {
-        bottom: 50px;
+        bottom: 120px;
     }
 }
 
@@ -333,11 +337,11 @@
         padding-bottom: 50px;
     }
     #winnerpodium .tropy-container {
-        padding-top: 270px;
-        padding-bottom: 270px;
+        padding-top: 500px;
+        padding-bottom: 500px;
     }
     #winnerpodium .winner-card-list {
-        bottom: 0px;
+        bottom: 90px;
     }
 }
 
