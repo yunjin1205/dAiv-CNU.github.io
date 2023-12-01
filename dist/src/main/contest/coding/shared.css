@@ -177,7 +177,7 @@
 
 #winnerpodium .background-container {
     width: 100vw;
-    height: 90vh;
+    height: 92vh;
 }
 
 #winnerpodium .foreground-wrapper {
@@ -230,7 +230,7 @@
 
 @media (max-width: 1399px) {
     #winnerpodium .background-container {
-        height: 78vh;
+        height: 80vh;
     }
     #winnerpodium .foreground-container {
         width: 64%;
@@ -242,7 +242,7 @@
 
 @media (max-width: 1199px) {
     #winnerpodium .background-container {
-        height: 72vh;
+        height: 74vh;
     }
     #winnerpodium .foreground-container {
         width: 70%;
@@ -254,7 +254,7 @@
 
 @media (max-width: 991px) {
     #winnerpodium .background-container {
-        height: 78vh;
+        height: 80vh;
     }
     #winnerpodium .foreground-container {
         width: 100%;
@@ -288,7 +288,7 @@
     #winnerpodium .background-container {
         display: block;
         width: 100%;
-        aspect-ratio: 1 / 1.05;
+        aspect-ratio: 1 / 1.06;
         height: 100%;
     }
     #winnerpodium .foreground-container {
@@ -309,7 +309,7 @@
     #winnerpodium .background-container {
         display: block;
         width: 100%;
-        aspect-ratio: 1;
+        aspect-ratio: 1 / 1.12;
         height: 100%;
     }
     #winnerpodium .foreground-container {
@@ -329,7 +329,7 @@
     #winnerpodium .background-container {
         display: block;
         width: 100%;
-        aspect-ratio: 1.05 / 1;
+        aspect-ratio: 1 / 1.16;
         height: 100%;
     }
     #winnerpodium .foreground-container {
