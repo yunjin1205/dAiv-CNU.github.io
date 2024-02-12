@@ -108,6 +108,20 @@
     }
 }
 
+#front .btn-open-discord {
+    margin-left: 10px;
+    color: #fff;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.05);
+}
+
+#front .btn-open-discord:hover {
+    margin-left: 10px;
+    color: #fff;
+    border: 2px solid rgba(0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0.3);
+}
+
 /*--------------------------------------------------------------
 # About US
 --------------------------------------------------------------*/

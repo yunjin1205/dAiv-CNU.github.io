@@ -313,10 +313,25 @@
 
 #footer .footer-sns {
     padding: 0px 16px 0px 0px;
+    text-decoration: none;
 }
 
 #footer .footer-sns-last {
     padding: 0px 0px 0px 0px;
+}
+
+#footer .bi-discord {
+    padding: 3px;
+    height: 22px;
+    width: 114px;
+    background-color: #212529;
+    border-radius: 50px;
+}
+
+#footer .bi-discord text {
+    color: #677a96;
+    font-weight: bold;
+    font-size: 12px;
 }
 
 
