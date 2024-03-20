@@ -53,14 +53,9 @@
     controls
     autoplay
     style="position: absolute;
-            right: 0;
-            bottom: 0;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -100;
-            background-size: cover;
+            object-fit: contain;
+            height: 100vh;
+            width: 100%;
             overflow: hidden;"
     ></video>
 
