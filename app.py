@@ -1,4 +1,4 @@
-from flask import Flask, send_from_directory, render_template
+from flask import Flask, send_from_directory
 
 
 app = Flask(__name__, static_url_path="", static_folder="dist/res/static", template_folder="dist/res/templates")
@@ -23,4 +23,4 @@ def redirect_to_index(path, file):
 
 
 if __name__ == '__main__':
-    app.run(port=4000, debug=True)
+    app.run()
