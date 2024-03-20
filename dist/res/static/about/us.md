@@ -47,16 +47,13 @@
 
 <video
     src="/about/introduction.mp4"
-    width="1280px"
-    height="720px"
-    poster="images/Gaulois-poster.PNG"
     controls
     autoplay
     style="position:absolute;
             left:50%;
             top:50%;
-            -webkit-transform:translate(-50%,-50%);
-            transform:translate(-50%,-50%);"
+            -webkit-transform:translate(-50%, -50%);
+            transform:translate(-50%, -50%);"
     ></video>
 
 <pre>
