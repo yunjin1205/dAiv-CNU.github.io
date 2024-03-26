@@ -278,19 +278,19 @@
 
 @media (max-width: 575px) {
     #team .member h4 {
-        font-size: 15px;
-    }
-
-    #team .member span {
-        font-size: 18px;
-    }
-
-    #team .member p {
         font-size: 14px;
     }
 
-    #team .advisor h4 {
+    #team .member span {
         font-size: 16px;
+    }
+
+    #team .member p {
+        font-size: 12px;
+    }
+
+    #team .advisor h4 {
+        font-size: 15px;
     }
 }
 
