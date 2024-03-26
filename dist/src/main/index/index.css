@@ -273,12 +273,12 @@
 #team .advisor p {
     text-align: center;
     margin-top: 10px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 @media (max-width: 575px) {
     #team .member h4 {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     #team .member span {
@@ -286,11 +286,11 @@
     }
 
     #team .member p {
-        font-size: 16px;
+        font-size: 14px;
     }
 
     #team .advisor h4 {
-        font-size: 17px;
+        font-size: 16px;
     }
 }
 
