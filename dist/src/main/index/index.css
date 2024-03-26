@@ -278,11 +278,11 @@
 
 @media (max-width: 575px) {
     #team .member h4 {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     #team .member span {
-        font-size: 16px;
+        font-size: 15px;
     }
 
     #team .member p {
@@ -290,7 +290,7 @@
     }
 
     #team .advisor h4 {
-        font-size: 15px;
+        font-size: 14px;
     }
 }
 
