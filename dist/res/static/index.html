@@ -41,8 +41,9 @@
 
     <style>
         .btn-outline-primary {
-            color: #ffffff;
-            background-color: #ffe1ae;
+            background-color: #ffffff;
+            border-color: #ffffff;
+            color: #424242;
             border-radius: 20px;
             width: 120px;
             height: 40px;
@@ -51,13 +52,17 @@
             text-align: center;
         }
 
+        .btn-outline-primary:hover {
+            background-color: #ffe1ae;
+            border-color: #ffe1ae;
+            color: #282828;
+        }
 
-       .btn-check:checked + .btn-outline-primary {
-        background-color: #eca52c;
-        color: #ffffff;
-        border-color: #eca52c;
-       }
-
+        .btn-check:checked + .btn-outline-primary {
+            background-color: #eca52c;
+            border-color: #eca52c;
+            color: #ffffff;
+        }
     </style>
 </head>
 <body onload="brython()">
