@@ -17,10 +17,10 @@ async def insert_template(template_path: str, parent, index: int = -1, oncomplet
     insert_element(await result.text(), parent, index)
 
     # footer 높이 계산
-    footer_height = document.querySelector('footer').offsetHeight
+    #footer_height = document.querySelector('footer').offsetHeight
 
     # iframe 높이 조정
-    iframe = document.querySelector('.full-screen')
+    #iframe = document.querySelector('.full-screen')
     #iframe.style.height = f"{footer_height}px"
 
     aio.run(oncomplete())
@@ -52,4 +52,4 @@ async def set_iframe():
 
 
 # Insert Templates
-aio.run(insert_template("footer.html", document.body, -1, set_iframe))
+aio.run(insert_template("footer.html", document.body, -1))

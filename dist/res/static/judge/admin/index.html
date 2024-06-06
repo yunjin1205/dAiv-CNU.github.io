@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang=en>
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta property="og:image" content="https://avatars.githubusercontent.com/u/145438830?s=400&u=7af520f7693862149d187751ce38810434518bda&v=4">
+    <meta content="IE=edge,chrome=1" http-equiv=X-UA-Compatible>
+    <meta content=webkit name=renderer>
 
     <title>dAiv - Online Judge</title>
     <link rel="shortcut icon" href="/dist/res/image/favicon.ico">
@@ -23,13 +24,16 @@
     <script type="text/javascript" src="/cdn/brython/3.11.3/brython_stdlib.js" crossorigin="anonymous"></script>
 
     <!-- Page Scripting -->
-    <script type="text/python" src="/dist/src/main/judge/judge.py"></script>
-    <link href="/dist/src/main/judge/judge.css" rel="stylesheet">
+    <link href=/dist/res/static/judge/static/css/vendor.d7eb5fa53e8000d7b3455700fc1c8303.css rel=stylesheet>
+    <link href=/dist/res/static/judge/static/css/admin.7b5b166a91e4abfaff5094a0015ba4bd.css rel=stylesheet>
 </head>
-<body onload="brython()">
-    <!-- Judge -->
-    <section id="judge" class="judge-screen">
-        <iframe class="online-judge full-screen" name="online-judge" data="https://daiv.ddns.net"></iframe>
-    </section>
+<body>
+    <div id=app>
+
+    </div>
+    <script type=text/javascript src=/dist/res/static/judge/static/js/vendor.dll.7d98bec.js></script>
+    <script type=text/javascript src=/dist/res/static/judge/static/js/manifest.31351240a507d0376953.js></script>
+    <script type=text/javascript src=/dist/res/static/judge/static/js/vendor.c68548dcd5b5b4a7d84d.js></script>
+    <script type=text/javascript src=/dist/res/static/judge/static/js/admin.d2848f19d8cdc662cfef.js></script>
 </body>
 </html>
