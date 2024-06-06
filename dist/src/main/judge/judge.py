@@ -12,15 +12,33 @@ print, pyprint = module_init(__name__, "judge.judge")
 browser.__dict__['module_init'] = module_init
 
 
-async def insert_template(template_path: str, parent, index: int = -1, oncomplete=lambda: None):
-    result = await window.fetch("/dist/res/templates/"+template_path)
-    insert_element(await result.text(), parent, index)
+cached_width = 0
+
+
+def spacer_resizer(e=None):
+    global cached_width
+
+    if cached_width >= document.body.offsetWidth:
+        return
+
+    cached_width = document.body.offsetWidth
 
     # spacer 높이 조정
     spacer = document.getElementById('footer-spacer')
     if spacer:
         body_height = document.body.offsetHeight
-        spacer.style.height = f"calc(100vh - {body_height}px)"
+
+        header_height = document.body.getBoundingClientRect().top
+        spacer.style.height = f"calc(100vh - {body_height}px - {header_height}px)"
+
+
+async def insert_template(template_path: str, parent, index: int = -1, oncomplete=lambda: None):
+    result = await window.fetch("/dist/res/templates/"+template_path)
+
+    insert_element(await result.text(), parent, index)
+
+    window.addEventListener('resize', spacer_resizer)
+    spacer_resizer()
 
     oncomplete()
 
