@@ -15,7 +15,7 @@ browser.__dict__['module_init'] = module_init
 cached_width = 0
 
 
-def spacer_resizer(e=None):
+def embed_resizer(e=None):
     global cached_width
 
     if cached_width >= document.body.offsetWidth:
@@ -23,13 +23,15 @@ def spacer_resizer(e=None):
 
     cached_width = document.body.offsetWidth
 
-    # spacer 높이 조정
-    spacer = document.getElementById('footer-spacer')
-    if spacer:
-        body_height = document.body.offsetHeight
+    footer_height = 0
+    footer = document.getElementById('footer')
+    if footer:
+        footer_height = footer.offsetHeight
 
-        header_height = document.body.getBoundingClientRect().top
-        spacer.style.height = f"calc(100vh - {body_height}px - {header_height}px)"
+    # iframe 높이 조정
+    if 'judge_iframe' in document:
+        iframe = document['judge_iframe']
+        iframe.style.height = f"calc(100vh - {footer_height}px)"
 
 
 async def insert_template(template_path: str, parent, index: int = -1, oncomplete=lambda: None):
@@ -37,8 +39,8 @@ async def insert_template(template_path: str, parent, index: int = -1, oncomplet
 
     insert_element(await result.text(), parent, index)
 
-    window.addEventListener('resize', spacer_resizer)
-    spacer_resizer()
+    window.addEventListener('resize', embed_resizer)
+    embed_resizer()
 
     oncomplete()
 

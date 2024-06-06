@@ -23,35 +23,12 @@
     <script type="text/javascript" src="/cdn/brython/3.11.3/brython_stdlib.js" crossorigin="anonymous"></script>
 
     <!-- Page Scripting -->
-    <link href=/judge/static/css/loader.css rel=stylesheet>
-    <link href=/judge/static/css/vendor.d7eb5fa53e8000d7b3455700fc1c8303.css rel=stylesheet>
-    <link href=/judge/static/css/oj.1a28434668fc1763e43fbe78360d97e4.css rel=stylesheet>
     <script type="text/python" src="/dist/src/main/judge/judge.py"></script>
     <link href="/dist/src/main/judge/judge.css" rel="stylesheet">
 </head>
 <body onload="brython()">
-    <!-- Judge -->
     <section id="judge">
-        <div id=app-loader>
-            <div class=square></div>
-            <div class=square></div>
-            <div class="square last"></div>
-            <div class="square clear"></div>
-            <div class=square></div>
-            <div class="square last"></div>
-            <div class="square clear"></div>
-            <div class=square></div>
-            <div class="square last"></div>
-        </div>
-        <div id=app>
-
-        </div>
-        <script src=/judge/static/js/vendor.dll.7d98bec.js type=text/javascript></script>
-        <script src=/judge/static/js/manifest.31351240a507d0376953.js type=text/javascript></script>
-        <script src=/judge/static/js/vendor.c68548dcd5b5b4a7d84d.js type=text/javascript></script>
-        <script src=/judge/static/js/oj.538b80c5d17227ef7fe2.js type=text/javascript></script>
+        <iframe id="judge_iframe" src="https://daiv.ddns.net/"></iframe>
     </section>
-
-    <div id="footer-spacer"></div>
 </body>
 </html>
