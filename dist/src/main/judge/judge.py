@@ -66,3 +66,20 @@ def add_to_home():
 
 # Insert Templates
 aio.run(insert_template("footer.html", document.body, -1, add_to_home))
+
+
+# Iframe url change listener
+if 'judge_iframe' in document:
+    print("hello")
+    def pop_handler(event):
+        print("hello3")
+        iframe_url = event.newURL
+        root_url = event.target.root_url
+        print("NEW:", iframe_url)
+        src_url = "/judge/" + iframe_url.replace(root_url, "?")
+
+        # Adds a new entry to the history and changes the url in the browser.
+        window.history.pushState(src_url)
+
+    print("hello2")
+    document['judge_iframe'].contentWindow.history.popState(pop_handler)

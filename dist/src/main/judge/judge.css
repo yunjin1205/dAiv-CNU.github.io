@@ -2,10 +2,15 @@
 # Judge
 --------------------------------------------------------------*/
 #judge {
+    margin: 0;
+    padding: 0;
+    background: #879ab5;
 }
 
 #judge iframe {
     width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 
