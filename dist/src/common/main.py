@@ -122,9 +122,17 @@ def enable_back_to_top():
 
     show_back_to_top_button(None)
     window.addEventListener('scroll', show_back_to_top_button)
+    add_to_home()
 
 
 ########################################################################################################################
+
+def add_to_home():
+    if 'org-logo-to-main-page' in document:
+        def event_handler(_):
+            window.location.href = "/"
+        document['org-logo-to-main-page'].addEventListener('click', event_handler)
+
 
 # Insert Templates
 aio.run(insert_template("header.html", document.body, 0, enable_navigation))

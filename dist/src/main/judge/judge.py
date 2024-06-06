@@ -57,5 +57,12 @@ def parse_html(htmlstr: str):
     return template.content
 
 
+def add_to_home():
+    if 'org-logo-to-main-page' in document:
+        def event_handler(_):
+            window.location.href = "/"
+        document['org-logo-to-main-page'].addEventListener('click', event_handler)
+
+
 # Insert Templates
-aio.run(insert_template("footer.html", document.body, -1))
+aio.run(insert_template("footer.html", document.body, -1, add_to_home))
