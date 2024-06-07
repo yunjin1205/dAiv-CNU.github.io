@@ -31,7 +31,9 @@ def embed_resizer(e=None):
     # iframe 높이 조정
     if 'judge_iframe' in document:
         iframe = document['judge_iframe']
-        iframe.style.height = f"calc(100vh - {footer_height}px)"
+        sc_height = iframe.contentWindow.document.body.scrollHeight
+        iframe.style.height = f"calc(100vh + {sc_height}px - {footer_height}px - {footer_height}px)"
+        print(iframe.style.height)
 
 
 async def insert_template(template_path: str, parent, index: int = -1, oncomplete=lambda: None):
@@ -67,7 +69,7 @@ def add_to_home():
 # Insert Templates
 aio.run(insert_template("footer.html", document.body, -1, add_to_home))
 
-
+'''
 # Iframe url change listener
 if 'judge_iframe' in document:
     print("hello")
@@ -83,3 +85,4 @@ if 'judge_iframe' in document:
 
     print("hello2")
     document['judge_iframe'].contentWindow.history.popState(pop_handler)
+'''
