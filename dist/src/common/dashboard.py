@@ -197,10 +197,11 @@ def build_participation_status_chart(data_series, timeline, colors=None, padding
     stat = (start - now).days - 1
 
     if len(data_series) < before:
-        data_series = data_series.extend([0 for _ in range(before-len(data_series))])
+        data_series.extend([0 for _ in range(before-len(data_series))])
 
     if stat > 0:
-        data_series = data_series[:before-stat].extend([randrange(0, 10) for _ in range(stat)])
+        data_series = data_series[:before-stat]
+        data_series.extend([randrange(0, 10) for _ in range(stat)])
     else:
         data_series = data_series[:before]
 
