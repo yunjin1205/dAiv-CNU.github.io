@@ -72,13 +72,7 @@ except Exception as _:
 # QnA
 ########################################################################################################################
 async def set_iframe():
-    try:
-        pushoong = window.frames['pushoong'].document
-    except Exception as _:
-        traceback.print_exc()
-        print("QNA- iframe not found. terminating set_iframe()...")
-        pushoong = None
-
+    pushoong = window.frames['pushoong'].document
     psh_req = await window.fetch(document.getElementsByName("pushoong")[0].attributes.data.value)
     psh_html = ((await psh_req.text()).replace("115px", "0px")
                 .replace("//t1.daumcdn.net/kas/static/ba.min.js", "")
